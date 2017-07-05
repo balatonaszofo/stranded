@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<head>
+<title>Stranded With Matt Damon</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<script type="text/javascript" src="stack.js"></script>
+
+</head>
+<body>
+<div id="demoBox">
+
+<h3>Card Stacks Demo</h3>
+<p>
+<a href="" onclick="myDeck;return false;">Get Deck</a>
+|
+<a href="" onclick="stackShuffle(1);return false;">Shuffle Deck</a>
+|
+<a href="" onclick="moveToHand();return false;">Deal</a>
+|
+<a href="" onclick="winRound();return false;">Win Round</a>
+</p>
+
+<p>
+<a href="" onclick="startingEDdeck();return false;">Get ED Deck</a>
+|
+<a href="" onclick="edDeckShuffle(1);return false;">Shuffle ED Deck</a>
+|
+<a href="" onclick="edDeckDeal();return false;">Deal</a>
+|
+<a href="" onclick="moveToPlay();return false;">Move To Play</a>
+</p>
+
+<p id="currentLife">My Life Points</p>
+<p id="lifeBank">Life Points Bank</p>
+
+</div>
+
+<form action="" onsubmit="return false;">
+  <div style="float:left;margin-right:1em;">
+    <b>Choose Endangerment Card:</b><br>
+    <select id="selCard" onclick="getSelectedCard();"></select>
+  <div style="float:left;margin-right:1em;">
+    <b>Danger Cards:</b><br>
+    <textarea rows="10" cols="20" id="inPlay"></textarea>
+  </div>
+  <div style="float:left;margin-right:1em;">
+    <b>Hand:</b><br>
+    <textarea rows="10" cols="20" id="myHand"></textarea>
+  </div>
+  <div style="float:left;">
+    <b>Discards:</b><br>
+    <textarea rows="10" cols="20" id="myDiscard"></textarea>
+  </div>
+    <div style="float:left;margin-right:1em;">
+    <b>Select:</b><br>
+    <select id="selCard" onclick="getSelectedCard();"></select>
+	<button id="exchange"  style="display:none;" class="answer_list" onclick="exchangeCard()">Exchange</button>
+	<button id="copy"  style="display:none;" class="answer_list" onclick="copyCard()">Copy</button>
+	<button id="trash"  style="display:none;" class="answer_list" onclick="trashCard()">Trash</button>
+	<button id="belowThePile"  style="display:none;" class="answer_list" onclick="backToDeck()">Below The Pile</button>
+	<button id="double"  style="display:none;" class="answer_list" onclick="doubleACard()">Double Card</button>
+	<a href onclick="tapCard();return false;">Tap Card</a>
+	
+  </div>
+  
+</form>
+<table id="myTableHand">
+  <tr>
+    <td>Row1 cell1</td>
+    <td>Row1 cell2</td>
+  </tr>
+  <tr>
+    <td>Row2 cell1</td>
+    <td>Row2 cell2</td>
+  </tr>
+  <tr>
+    <td>Row3 cell1</td>
+    <td>Row3 cell2</td>
+  </tr>
+</table>
+
+<p>	<a href="" onclick="giveLife();return false;">Give Up Life</a>
+<a href="" onclick="gainCard();return false;">Gain Card With Life</a>
+</p>
+
+
+
+</body>
+</html>
