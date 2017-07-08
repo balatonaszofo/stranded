@@ -2,10 +2,13 @@
 <head>
 <title>Stranded With Matt Damon</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<script type="text/javascript" src="stack.js"></script>
+
 
 </head>
 <body>
+
+
+
 <div id="demoBox">
 
 <h3>Card Stacks Demo</h3>
@@ -37,7 +40,6 @@
 <form action="" onsubmit="return false;">
   <div style="float:left;margin-right:1em;">
     <b>Choose Endangerment Card:</b><br>
-    <select id="selCard" onclick="getSelectedCard();"></select>
   <div style="float:left;margin-right:1em;">
     <b>Danger Cards:</b><br>
     <textarea rows="10" cols="20" id="inPlay"></textarea>
@@ -52,7 +54,13 @@
   </div>
     <div style="float:left;margin-right:1em;">
     <b>Select:</b><br>
-    <select id="selCard" onclick="getSelectedCard();"></select>
+
+	
+	<input type="button" id="myHand" onclick="moveToHand();" value="Add Card" />
+	<div id="selCard"></div>
+		
+		
+		
 	<button id="exchange"  style="display:none;" class="answer_list" onclick="exchangeCard()">Exchange</button>
 	<button id="copy"  style="display:none;" class="answer_list" onclick="copyCard()">Copy</button>
 	<button id="trash"  style="display:none;" class="answer_list" onclick="trashCard()">Trash</button>
@@ -60,29 +68,19 @@
 	<button id="double"  style="display:none;" class="answer_list" onclick="doubleACard()">Double Card</button>
 	<a href onclick="tapCard();return false;">Tap Card</a>
 	
+
   </div>
+
+
   
 </form>
-<table id="myTableHand">
-  <tr>
-    <td>Row1 cell1</td>
-    <td>Row1 cell2</td>
-  </tr>
-  <tr>
-    <td>Row2 cell1</td>
-    <td>Row2 cell2</td>
-  </tr>
-  <tr>
-    <td>Row3 cell1</td>
-    <td>Row3 cell2</td>
-  </tr>
-</table>
 
 <p>	<a href="" onclick="giveLife();return false;">Give Up Life</a>
 <a href="" onclick="gainCard();return false;">Gain Card With Life</a>
 </p>
 
 
+<script type="text/javascript" src="stack.js"></script>
 
 </body>
 </html>

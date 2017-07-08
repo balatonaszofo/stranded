@@ -58,40 +58,24 @@ function stackCardCount() {
 var myHand = [];
 
 /**
- * This function clears out everything in an option drop down menu.
- */
-function clearOptionElements(optionDropdownId){
-	var select = document.getElementById(optionDropdownId);
-	var length = select.options.length;
-	for(i = length - 1 ; i >= 0 ; i--) {
-		select.remove(i);
-	}
-}
-
-/**
 * This function is used to update the values within the selCard option dropdown with a given deck of cards.
  */
 function updateSelectCardDropdown(deckOfCards){
 	
 	var selCardDropdown = document.getElementById('selCard');
-	clearOptionElements('selCard');
+	selCardDropdown.innerHTML = '';
 	
 	for(var i = 0; i < deckOfCards.length; i++){
-		var opt = document.createElement('option');
 		var card = deckOfCards[i];
-		opt.innerHTML = JSON.stringify(card);
-		opt.value = i;
-		selCardDropdown.appendChild(opt);
+		var cardButton = '<button onclick="cardClicked('+i+')">'+ JSON.stringify(card)+'</button>';
+		selCardDropdown.innerHTML += cardButton;
 	}
 }
 
-function moveToTable() {
-    var table = document.getElementById("myTable");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
+function cardClicked (cardIndex) {
+	alert("The selected card is " + cardIndex)
 }
-
+	
 function moveToHand () {
 	if (myDeck.length > 0) {
 		myHand.push(myDeck.splice(0,1));
@@ -104,18 +88,12 @@ function moveToHand () {
 	document.getElementById('myHand').innerHTML = JSON.stringify(myHand);
 }
 
-//Select A Card
-var selectedValue;
-
-function getSelectedCard(){
-    selectedValue = document.getElementById("selCard").value;
-	console.log("Change selected card to: " + selectedValue);
-}
+//New Button Function
 
 //Tap A Card
 
 function tapCard () {
-    var myHandIndex = document.getElementById("selCard").value;
+    var myHandIndex = document.getElementById("selCard");
 	var selectedCard = myHand[myHandIndex];
 	if(selectedCard) {
 		myHand.splice(myHandIndex, 1);
