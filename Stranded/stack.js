@@ -15,7 +15,7 @@ var lifeBank = setInterval(function() {
 //Create Starting Deck (Matt Damon Cards)
 function startDeck() {
 	var mattCards = [
-		{title: 'Idiot', fightingValue: -1, ability: "doubleCard", destroyPoints: 1, numCards: 5},
+		{title: 'Idiot', fightingValue: -1, ability: "addOneLife", destroyPoints: 1, numCards: 5},
 		{title: 'Starving', fightingValue: 0, ability: null, destroyPoints: 1, numCards: 7},
 		{title: 'Harvesting', fightingValue: 0, ability: 'addOneLife', destroyPoints: 1, numCards: 1},
 		{title: 'Endurance', fightingValue: 1, ability: null, destroyPoints: 1, numCards: 3},
@@ -72,8 +72,12 @@ function updateSelectCardDropdown(deckOfCards){
 	}
 }
 
+var logMessages = [];
+
 function cardClicked (cardIndex) {
-	alert("The selected card is " + cardIndex)
+	console.log(cardIndex);
+	logMessages = [];
+	logMessages.push.apply(logMessages, arguments);
 }
 	
 function moveToHand () {
@@ -93,41 +97,41 @@ function moveToHand () {
 //Tap A Card
 
 function tapCard () {
-    var myHandIndex = document.getElementById("selCard");
-	var selectedCard = myHand[myHandIndex];
+    var myHandIndex = document.getElementById('selCard');
+	var selectedCard = myHand[logMessages][0];
 	if(selectedCard) {
 		myHand.splice(myHandIndex, 1);
 		updateSelectCardDropdown(myHand);
-			if(selectedCard[0].ability == "addOneLife") {
+			if(selectedCard.ability == "addOneLife") {
 				if(mylifePoints < 22) {
 				mylifePoints++;
 				lifePointsBank--;
 				} else {
 				return null;	 
 				}
-			} else if (selectedCard[0].ability == "addTwoLife") {
+			} else if (selectedCard.ability == "addTwoLife") {
 				if (mylifePoints < 21) {
 				mylifePoints += 2;
 				lifePointsBank -= 2;
 				} else {
 					return null
 				}
-			} else if (selectedCard[0].ability == "addOneCard") {
+			} else if (selectedCard.ability == "addOneCard") {
 				moveToHand();
-			} else if (selectedCard[0].ability == "addTwoCard") {
+			} else if (selectedCard.ability == "addTwoCard") {
 				moveToHand();
 				moveToHand();
-			} else if (selectedCard[0].ability == "trashOneCard") {
+			} else if (selectedCard.ability == "trashOneCard") {
 				document.getElementById('trash').style.display = "block";
-			} else if (selectedCard[0].ability == "copyCard") {
+			} else if (selectedCard.ability == "copyCard") {
 				document.getElementById('copy').style.display = "block";
-			} else if (selectedCard[0].ability == "exchangeOneCard") {
+			} else if (selectedCard.ability == "exchangeOneCard") {
 				document.getElementById('exchange').style.display = "block";
-			} else if (selectedCard[0].ability == "exchangeTwoCard") {
+			} else if (selectedCard.ability == "exchangeTwoCard") {
 				document.getElementById('exchange').style.display = "block";
-			} else if (selectedCard[0].ability == "belowPile") {
+			} else if (selectedCard.ability == "belowPile") {
 				document.getElementById('belowThePile').style.display = "block";
-			} else if (selectedCard[0].ability == "doubleCard") {
+			} else if (selectedCard.ability == "doubleCard") {
 				document.getElementById('double').style.display = "block";
 			}
 		/*var minusOnePhase;
@@ -146,15 +150,15 @@ function tapCard () {
 var myDiscard = [];
 
 function exchangeCard () {
-	var myHandIndex = document.getElementById("selCard").value;
-	var selectedCard = myHand[myHandIndex];
-	if(selectedCard[0].ability="exchangeOneCard") {
+    var myHandIndex = document.getElementById('selCard');
+	var selectedCard = myHand[logMessages][0];
+	if(selectedCard.ability="exchangeOneCard") {
 		myHand.splice(myHandIndex, 1);
 		updateSelectCardDropdown(myHand);
 		myDiscard.push(selectedCard.splice(0,1));
 		document.getElementById('myDiscard').innerHTML = JSON.stringify(myDiscard);
 		moveToHand();
-	} else if(selectedCard[0].ability="exchangeTwoCard") {
+	} else if(selectedCard.ability="exchangeTwoCard") {
 		myHand.splice(myHandIndex, 1);
 		updateSelectCardDropdown(myHand);
 		myDiscard.push(selectedCard.splice(0,1));
@@ -179,8 +183,8 @@ function discardAllCards () {
 var trashPile = [];
 
 function trashCard () {
-	var myHandIndex = document.getElementById("selCard").value;
-	var selectedCard = myHand[myHandIndex];
+    var myHandIndex = document.getElementById('selCard');
+	var selectedCard = myHand[logMessages][0];
 	if(selectedCard) {
 		myHand.splice(myHandIndex, 1);
 		updateSelectCardDropdown(myHand);
@@ -192,21 +196,21 @@ function trashCard () {
 }
 
 function doubleACard () {
-	var myHandIndex = document.getElementById("selCard").value;
-	var selectedCard = myHand[myHandIndex];
+    var myHandIndex = document.getElementById('selCard');
+	var selectedCard = myHand[logMessages][0];
 	myHand.splice(myHandIndex, 1);
 	updateSelectCardDropdown(myHand);
-	totalDamagePoints += selectedCard[0].fightingValue;
+	totalDamagePoints += selectedCard.fightingValue;
 	return selectedCard;
 }
 
 function backToDeck() {
 	if(winRound = true) {
-		var myHandIndex = document.getElementById("selCard").value;
-		var selectedCard = myHand[myHandIndex];
-		myHand.splice(myHandIndex, 1);
-		updateSelectCardDropdown(myHand);
-		myDeck.push.appendChild(selectedCard.splice(0,1));
+		var myHandIndex = document.getElementById('selCard');
+		var selectedCard = myHand[logMessages][0];
+			myHand.splice(myHandIndex, 1);
+			updateSelectCardDropdown(myHand);
+			myDeck.push.appendChild(selectedCard.splice(0,1));
 	}
 }
 
@@ -264,9 +268,12 @@ function edDeckShuffle(n) {
 		}
 }
 
-function edDeckDeal() {	
+var selectionDeck = [];
+
+/*function edDeckDeal() {	
   if (edDeck.length > 1) {
 		return edDeck.splice(0,2);
+		
 	}
 	else if (edDeck.length = 1) {
 		return edDeck.splice(0,1);
@@ -274,6 +281,40 @@ function edDeckDeal() {
 	else {
 		return null;
   }
+}*/
+
+/*var logMessages = [];
+
+function cardClicked (cardIndex) {
+	console.log(cardIndex);
+	logMessages = [];
+	logMessages.push.apply(logMessages, arguments);
+}*/
+
+function updateEDCard(edDeckCards){
+	
+	var edCardDropdown = document.getElementById('edselCard');
+	edCardDropdown.innerHTML = '';
+	
+	for(var i = 0; i < edDeckCards.length; i++){
+		var card = edDeckCards[i];
+		var cardButton = '<button onclick="cardClicked('+i+')">'+ JSON.stringify(card)+'</button>';
+		edCardDropdown.innerHTML += cardButton;
+	}
+}
+
+function moveEDHand () {
+	if (edDeck.length > 0) {
+		for(var i = 0; i < 2; i++) {
+			selectionDeck.push(edDeck.splice(0,1));
+			updateEDCard(selectionDeck);
+		}
+	}
+	else {
+		return null;
+	}
+	//return myHand;
+	document.getElementById('selectionDeck').innerHTML = JSON.stringify(selectiondDeck);
 }
 
 var currentED = edDeckDeal();
@@ -288,16 +329,18 @@ var inPlay = [];
 
 function moveToPlay () {
 	if (currentED.length > 0) {
-		/*var myHandIndex = document.getElementById("selCard").value;
+		var myHandIndex = document.getElementById("selCard").value;
 		function tapCard () {
-	var selectedCard = myHand[myHandIndex];
-	if(selectedCard) {
-		myHand.splice(myHandIndex, 1);
-		updateSelectCardDropdown(myHand);
-		inPlay.push(currentED.splice(0,1));*/
-	}
-	else {
-		return null;
+			var selectedCard = myHand[myHandIndex];
+			if(selectedCard) {
+				myHand.splice(myHandIndex, 1);
+				updateSelectCardDropdown(myHand);
+				inPlay.push(currentED.splice(0,1));
+			}
+			else {
+				return null;
+			}
+		}
 	}
 	//return inPlay;
 	document.getElementById('inPlay').innerHTML = JSON.stringify(inPlay);
@@ -417,3 +460,9 @@ var currentPhase = (function () {
 	}
 	return phase;
 }*/
+
+$(window).load(function() {
+  $('a.btn').click(function() {
+    $(this).toggleClass("active");
+  });
+});

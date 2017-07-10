@@ -2,84 +2,88 @@
 <head>
 <title>Stranded With Matt Damon</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-
-
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<table class="headertable">
+<tr class="curvetable">
+<td class="headercell">
+<h1>STRANDED...|</h1>
+</td>
+</tr>
+</table>
 
+<table class="maintable">
+<tr>
+</tr>
+<tr>
+<td>
+<h3>My Life Points:</h3><p id="currentLife"></p>
+<h3>Life Points Bank:</h3><p id="lifeBank"></p>
+</td>
+<td>
+Age Cards
+</td>
+<td>
 
+<p>	<button class="button_sliding_bg" onclick="giveLife();return false;">Give Up Life</button>
+<button class="button_sliding_bg" onclick="gainCard();return false;">Gain Card With Life</button>
 
-<div id="demoBox">
-
-<h3>Card Stacks Demo</h3>
-<p>
-<a href="" onclick="myDeck;return false;">Get Deck</a>
-|
-<a href="" onclick="stackShuffle(1);return false;">Shuffle Deck</a>
-|
-<a href="" onclick="moveToHand();return false;">Deal</a>
-|
-<a href="" onclick="winRound();return false;">Win Round</a>
 </p>
+</td>
+</tr>
 
+<tr>
+<td>
 <p>
-<a href="" onclick="startingEDdeck();return false;">Get ED Deck</a>
-|
-<a href="" onclick="edDeckShuffle(1);return false;">Shuffle ED Deck</a>
-|
-<a href="" onclick="edDeckDeal();return false;">Deal</a>
-|
-<a href="" onclick="moveToPlay();return false;">Move To Play</a>
+<input type="button" class="card_select_bg" onclick="edDeckShuffle(1);return false;" value="Shuffle Danger Cards" />
+<input type="button" class="card_select_bg" id="selectionDeck" onclick="moveEDHand();" value="Deal Danger Cards" />
+<input type="button" class="card_select_bg" onclick="moveToPlay();return false;"  value="Select Danger Card" />
 </p>
+<b>Danger Cards:</b><br>
+    <div id="edselCard"></div>
+</td>
+<td>
+Hello...
+</td>
+<td>
+<p>
+<input type="button" class="card_select_bg" onclick="myDeck;return false;" value="Get Hand" />
+<input type="button" class="card_select_bg" onclick="stackShuffle(1);return false;" value="Shuffle Hand" />
 
-<p id="currentLife">My Life Points</p>
-<p id="lifeBank">Life Points Bank</p>
+</p>
+</td>
+</tr>
 
-</div>
+<tr>
+<td>
 
-<form action="" onsubmit="return false;">
-  <div style="float:left;margin-right:1em;">
-    <b>Choose Endangerment Card:</b><br>
-  <div style="float:left;margin-right:1em;">
-    <b>Danger Cards:</b><br>
-    <textarea rows="10" cols="20" id="inPlay"></textarea>
-  </div>
+</td>
+<td>
+  	<input type="button" class="card_select_bg" id="myHand" onclick="moveToHand();" value="Add Card To Hand" />
+		<div id="selCard"></div>
   <div style="float:left;margin-right:1em;">
     <b>Hand:</b><br>
-    <textarea rows="10" cols="20" id="myHand"></textarea>
   </div>
-  <div style="float:left;">
-    <b>Discards:</b><br>
-    <textarea rows="10" cols="20" id="myDiscard"></textarea>
-  </div>
-    <div style="float:left;margin-right:1em;">
-    <b>Select:</b><br>
-
-	
-	<input type="button" id="myHand" onclick="moveToHand();" value="Add Card" />
-	<div id="selCard"></div>
-		
-		
-		
-	<button id="exchange"  style="display:none;" class="answer_list" onclick="exchangeCard()">Exchange</button>
+  	<button id="exchange"  style="display:none;" class="answer_list" onclick="exchangeCard()">Exchange</button>
 	<button id="copy"  style="display:none;" class="answer_list" onclick="copyCard()">Copy</button>
 	<button id="trash"  style="display:none;" class="answer_list" onclick="trashCard()">Trash</button>
 	<button id="belowThePile"  style="display:none;" class="answer_list" onclick="backToDeck()">Below The Pile</button>
 	<button id="double"  style="display:none;" class="answer_list" onclick="doubleACard()">Double Card</button>
 	<a href onclick="tapCard();return false;">Tap Card</a>
-	
-
+	<a href="" onclick="winRound();return false;">Win Round</a>
+</td>
+<td>
+  <div style="float:left;">
+    <b>Discards:</b><br>
+    <textarea rows="10" cols="20" id="myDiscard"></textarea>
   </div>
+</td>
+</tr>
 
+</table>
 
-  
-</form>
-
-<p>	<a href="" onclick="giveLife();return false;">Give Up Life</a>
-<a href="" onclick="gainCard();return false;">Gain Card With Life</a>
-</p>
-
-
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
 <script type="text/javascript" src="stack.js"></script>
 
 </body>
