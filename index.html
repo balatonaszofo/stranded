@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<head>
+<title>Stranded With Matt Damon</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<table class="headertable">
+<tr class="curvetable">
+<td class="headercell">
+<h1 class="logoposition">STRANDED...|</h1>
+</td>
+</tr>
+</table>
+
+<table class="maintable">
+<tr>
+</tr>
+<tr>
+<td>
+<h2>Vital Signs</h2>
+<h3>My Life Points:</h3><p id="currentLife"></p>
+<h3>Life Points Bank:</h3><p id="lifeBank"></p>
+<h3>Phase:</h3><p></p>
+</td>
+<td class="agecell">
+<h2>Age Cards</h2>
+</td>
+<td>
+<h2>Reserve Actions</h2>
+<p>	<button class="button_sliding_bg" onclick="giveLife();return false;">Give Up Life</button>
+<button class="button_sliding_bg" onclick="gainCard();return false;">Gain Card With Life</button>
+
+</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<h2>Danger Cards</h2>
+<p>
+<input type="button" class="card_select_bg" onclick="edDeckShuffle(1);return false;" value="Shuffle Danger Cards" />
+<input type="button" class="card_select_bg" id="selectionDeck" onclick="moveEDHand();" value="Deal Danger Cards" />
+<input type="button" class="card_select_bg" onclick="moveToPlay();return false;"  value="Select Danger Card" />
+</p>
+
+    <div id="edselCard"></div>
+	
+</td>
+<td>
+<h2>In Play</h2>
+</td>
+<td>
+<h2>My Deck</h2>
+<p>
+<input type="button" class="card_select_bg" onclick="myDeck;return false;" value="Get Hand" />
+<input type="button" class="card_select_bg" onclick="stackShuffle(1);return false;" value="Shuffle Hand" />
+
+</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<h2>Discarded Danger Cards</h2>
+</td>
+<td>
+  <h2>My Hand</h2>
+  	<input type="button" class="card_select_bg" id="myHand" onclick="moveToHand();" value="Add Card To Hand" />
+	<input type="button" class="card_select_bg" onclick="tapCard();return false;" value="Tap Card" />
+	<input type="button" class="card_select_bg" onclick="winRound();return false;" value="Win Round" />
+	
+	<div id="selCard"></div>
+	
+		
+  	<button id="exchange"  style="display:none;" class="answer_list" onclick="exchangeCard()">Exchange</button>
+	<button id="copy"  style="display:none;" class="answer_list" onclick="copyCard()">Copy</button>
+	<button id="trash"  style="display:none;" class="answer_list" onclick="trashCard()">Trash</button>
+	<button id="belowThePile"  style="display:none;" class="answer_list" onclick="backToDeck()">Below The Pile</button>
+	<button id="double"  style="display:none;" class="answer_list" onclick="doubleACard()">Double Card</button>
+
+</td>
+<td>
+    <h2>Discarded Hand</h2>
+</td>
+</tr>
+
+</table>
+
+<script type="text/javascript" src="stack.js"></script>
+
+</body>
+</html>

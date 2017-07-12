@@ -1,0 +1,5 @@
+'<button onclick="cardClicked('+i+')">'+ JSON.stringify(card)+'</button>';
+
+'<button onclick="cardClicked('+i+')">'+ JSON.stringify(card)+'</button>';
+
+document.getElementById('edselCard').src="/cardimg/" + selected_text + ".jpg";
