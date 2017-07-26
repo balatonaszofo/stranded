@@ -17,70 +17,91 @@
 <tr>
 </tr>
 <tr>
-<td>
-<h2>Vital Signs</h2>
-<h3>My Life Points:</h3><p id="currentLife"></p>
-<h3>Life Points Bank:</h3><p id="lifeBank"></p>
-<h3>Phase:</h3><p></p>
+<td class="computerbg">
+<h1>VITAL SIGNS</h1>
+	<table style="margin-left: auto; margin-right: auto;">
+		<tr>
+		<td style="padding-right: 10%;">
+		<h2>My Life Points</h2><h2 id="currentLife"></h2>
+		</td>
+		<td style="padding-right: 10%;">
+		<h2>Life Points Bank</h2><h2 id="lifeBank"></h2>
+		</td>
+		<td>
+		<h2>Sol/Phase</h2><p><div id="phase"></div></p>
+		</td>
+		</tr>
+	</table>
 </td>
 <td class="agecell">
-<h2>Age Cards</h2>
+<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/age-card-back.jpg" class="centered"/>
+	<input type="button" class="card_select_bg" onclick="ageDeckShuffle(1);return false;" value="Shuffle" />
+	<input type="button" class="card_select_bg" onclick="moveToDeck();" value="Add Card" />
 </td>
-<td>
-<h2>Reserve Actions</h2>
-<p>	<button class="button_sliding_bg" onclick="giveLife();return false;">Give Up Life</button>
-<button class="button_sliding_bg" onclick="gainCard();return false;">Gain Card With Life</button>
-
+<td class="computerbg">
+<h1>RESERVE ACTIONS</h1>
+<p class="centeredbuttons">	
+	<button class="button_sliding_bg" onclick="giveLife();return false;">Give Up Life</button>
+	<button class="button_sliding_bg" onclick="gainCard();return false;">Gain Card With Life</button>
+	<button class="button_sliding_bg" onclick="trashCardLife();return false;">Trash Card With Life</button>
 </p>
 </td>
 </tr>
 
 <tr>
-<td>
-<h2>Danger Cards</h2>
-<p>
-<input type="button" class="card_select_bg" onclick="edDeckShuffle(1);return false;" value="Shuffle Danger Cards" />
-<input type="button" class="card_select_bg" id="selectionDeck" onclick="moveEDHand();" value="Deal Danger Cards" />
-<input type="button" class="card_select_bg" onclick="moveToPlay();return false;"  value="Select Danger Card" />
+<td class="dangercell">
+<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/danger-card-back.jpg" class="centered"/>
+
+<p class="centeredbuttons">
+<input type="button" class="card_select_bg" onclick="edDeckShuffle(1);return false;" value="Shuffle" />
+<input type="button" class="card_select_bg" id="selectionDeck" onclick="moveEDHand();" value="Deal" />
+<input type="button" class="card_select_bg" onclick="moveToPlay();return false;"  value="Select" />
 </p>
 
-    <div id="edselCard"></div>
+<div id="edselCard" class="centeredbuttons"></div>
 	
 </td>
-<td>
-<h2>In Play</h2>
+<td class="inplaycell">
+<p class="playarea">Danger Zone</p>
+	<div id="inPlay" class="centeredbuttons"></div>
 </td>
-<td>
-<h2>My Deck</h2>
-<p>
-<input type="button" class="card_select_bg" onclick="myDeck;return false;" value="Get Hand" />
-<input type="button" class="card_select_bg" onclick="stackShuffle(1);return false;" value="Shuffle Hand" />
+<td class="mydeckcell">
+<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/matt-card-back.jpg" class="centered"/>
 
+<p class="centeredbuttons">
+<input type="button" class="card_select_bg" onclick="stackShuffle(1);return false;" value="Shuffle Hand" />
+<div id="sortThreeCards"></div>
+  	<button id="discardCard"  style="display:none;" class="card_select_bg" onclick="discard()">Discard Card</button>
+	<button id="placeOnDeck"  style="display:none;" class="card_select_bg" onclick="placeOnDeck()">Place On Deck</button>
+	<button id="completeSort"  style="display:none;" class="card_select_bg" onclick="completeSort()">Complete Sort</button>
 </p>
+
 </td>
 </tr>
 
 <tr>
-<td>
+<td class="centeredbuttons">
 <h2>Discarded Danger Cards</h2>
 </td>
-<td>
-  <h2>My Hand</h2>
-  	<input type="button" class="card_select_bg" id="myHand" onclick="moveToHand();" value="Add Card To Hand" />
-	<input type="button" class="card_select_bg" onclick="tapCard();return false;" value="Tap Card" />
-	<input type="button" class="card_select_bg" onclick="winRound();return false;" value="Win Round" />
-	
-	<div id="selCard"></div>
-	
-		
-  	<button id="exchange"  style="display:none;" class="answer_list" onclick="exchangeCard()">Exchange</button>
-	<button id="copy"  style="display:none;" class="answer_list" onclick="copyCard()">Copy</button>
-	<button id="trash"  style="display:none;" class="answer_list" onclick="trashCard()">Trash</button>
-	<button id="belowThePile"  style="display:none;" class="answer_list" onclick="backToDeck()">Below The Pile</button>
-	<button id="double"  style="display:none;" class="answer_list" onclick="doubleACard()">Double Card</button>
+<td class="computerbg"">
+  <h1>MY HAND</h1>
+	<p class="centeredbuttons">
+		<table style="width:40%; margin-left: auto; margin-right: auto; display: block;"><tr><td style="padding-right: 5%; width: 100%;"><h2>Total Damage Points</h2></td><td><h2 id="totalDamagePoints"></h2></td></tr></table>
+		<input type="button" class="card_select_bg" id="myHand" onclick="moveToHand();" value="Add Card" />
+		<input type="button" class="card_select_bg" onclick="tapCard();return false;" value="Tap Card" />
+		<input type="button" class="card_select_bg" onclick="winRound();return false;" value="Win Round" />
+	</p>
+	<div id="selCard" class="centeredbuttons"></div>
+			
+  	<button id="exchange"  style="display:none;" class="card_select_bg" onclick="exchangeCard()">Exchange</button>
+	<button id="exchangeTwo"  style="display:none;" class="card_select_bg" onclick="exchangeCard()">Exchange</button>
+	<button id="copy"  style="display:none;" class="card_select_bg" onclick="copyACard()">Copy</button>
+	<button id="trash"  style="display:none;" class="card_select_bg" onclick="trashCard()">Trash</button>
+	<button id="belowThePile"  style="display:none;" class="card_select_bg" onclick="backToDeck()">Below The Pile</button>
+	<button id="double"  style="display:none;" class="card_select_bg" onclick="doubleACard()">Double Card</button>
 
 </td>
-<td>
+<td class="centeredbuttons">
     <h2>Discarded Hand</h2>
 </td>
 </tr>

@@ -13,9 +13,12 @@ var lifeBank = setInterval(function() {
 //document.getElementById("lifePoints").innerHTML = mylifePoints;
 
 //Create Starting Deck (Matt Damon Cards)
+var myDeck = 0;
+
 function startDeck() {
+	if (myDeck === 0) {
 	var mattCards = [
-		{title: 'Idiot', fightingValue: -1, ability: null, destroyPoints: 1, numCards: 5},
+		{title: 'Idiot', fightingValue: -1, ability: 'null', destroyPoints: 1, numCards: 5},
 		{title: 'Starving', fightingValue: 0, ability: null, destroyPoints: 1, numCards: 7},
 		{title: 'Harvesting', fightingValue: 0, ability: 'addOneLife', destroyPoints: 1, numCards: 1},
 		{title: 'Endurance', fightingValue: 1, ability: null, destroyPoints: 1, numCards: 3},
@@ -31,26 +34,47 @@ function startDeck() {
 	}
 	
 	return deck;
+	} else {
+		return null;
+	}
 }
 
-var myDeck = new startDeck();
+myDeck = new startDeck();
 
 var selectedCard = [];
+var myDeckShuffle = 0;
 
 //Shuffle And Deal Starting Deck
 function stackShuffle(n) {
-	for(var i = 0; i < n; i++) {
-		for(var j = 0; j < myDeck.length; j++) {
-			var k = Math.floor(Math.random() * myDeck.length);
-			var temp = myDeck[j];
-			myDeck[j] = myDeck[k];
-			myDeck[k] = temp;
+	if (myDiscard.length > 0) {
+		reshuffle();
+		for(var i = 0; i < n; i++) {
+			for(var j = 0; j < myDeck.length; j++) {
+				var k = Math.floor(Math.random() * myDeck.length);
+				var temp = myDeck[j];
+				myDeck[j] = myDeck[k];
+				myDeck[k] = temp;
+			}
 		}
+		currentPhase ();
+	} else if (myDeck.length === 0 || myDeckShuffle === 0) {
+		myDeckShuffle++;
+		for(var i = 0; i < n; i++) {
+			for(var j = 0; j < myDeck.length; j++) {
+				var k = Math.floor(Math.random() * myDeck.length);
+				var temp = myDeck[j];
+				myDeck[j] = myDeck[k];
+				myDeck[k] = temp;
+			}
+		}
+		currentPhase ();
+	} else {
+		return null;
 	}
 }
 
 function stackCardCount() {
-  return myDeck.length;
+	return myDeck.length;
 }
 
 //These Are Different Stacks
@@ -83,6 +107,75 @@ function updateSelectCardDropdown(deckOfCards){
 		else if(card[0].title == "Brilliance") {
 			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/brilliance-card.png" style="margin-right:50px; margin-bottom: 20px;"></a>';
 		}
+		else if(card[0].version == "ExplorationOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-weapon.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-multiply.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-recycle.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationFive") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-repeat.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationSix") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-nourishment.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-contact.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-optimization.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-prioritization.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-optimization.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-contact.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationFive") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-nourishment.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationSix") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-tools.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-exchange.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-nourishment.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-recycle.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarFive") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-repeat.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarSix") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-minusphase.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarSeven") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-discovery.png" style="margin-right:50px;"></img></a>';
+		}
 		selCardDropdown.innerHTML += cardButton;
 	}
 }
@@ -96,15 +189,19 @@ function cardClicked (cardIndex) {
 }
 	
 function moveToHand () {
-	if (myDeck.length > 0) {
+	if (myDeck.length > 0 && totalPoints < edCardValue && inPlay.length > 0) {
 		myHand.push(myDeck.splice(0,1));
 		updateSelectCardDropdown(myHand);
+		totalDamagePoints();
+	}
+	else if (myDeck.length > 0 && myHand.length === 0 && inPlay.length > 0) {
+		myHand.push(myDeck.splice(0,1));
+		updateSelectCardDropdown(myHand);
+		totalDamagePoints();
 	}
 	else {
 		return null;
 	}
-	//return myHand;
-	document.getElementById('myHand').innerHTML = JSON.stringify(myHand);
 }
 
 //New Button Function
@@ -115,7 +212,6 @@ function tapCard () {
     var myHandIndex = document.getElementById('selCard');
 	var selectedCard = myHand[logCard][0];
 	if(selectedCard) {
-		myHand.splice(myHandIndex, 1);
 		updateSelectCardDropdown(myHand);
 			if(selectedCard.ability == "addOneLife") {
 				if(mylifePoints < 22) {
@@ -144,14 +240,21 @@ function tapCard () {
 				document.getElementById('exchange').style.display = "block";
 			} else if (selectedCard.ability == "exchangeTwoCard") {
 				document.getElementById('exchange').style.display = "block";
+				document.getElementById('exchangeTwo').style.display = "block";
 			} else if (selectedCard.ability == "belowPile") {
 				document.getElementById('belowThePile').style.display = "block";
 			} else if (selectedCard.ability == "doubleCard") {
 				document.getElementById('double').style.display = "block";
+			} else if (selectedCard.ability == "sortThreeCards") {
+				sortThree();
+			} else if (selectedCard.ability == "minusOnePhase") {
+				if (phaseCalls > 1) {
+					phaseCalls -= 2;
+					currentPhase();
+				} else {
+					return null;
+				}
 			}
-		/*var minusOnePhase;
-		var sortThreeCards;*/
-		
 			else {
 				return null;
 			}
@@ -166,30 +269,15 @@ var myDiscard = [];
 
 function exchangeCard () {
     var myHandIndex = document.getElementById('selCard');
-	var selectedCard = myHand[logMessages][0];
-	if(selectedCard.ability="exchangeOneCard") {
-		myHand.splice(myHandIndex, 1);
-		updateSelectCardDropdown(myHand);
-		myDiscard.push(selectedCard.splice(0,1));
-		document.getElementById('myDiscard').innerHTML = JSON.stringify(myDiscard);
+	var selectedCard = myHand[logCard][0];
+		myDiscard.push(myHand.splice(logCard,1));
 		moveToHand();
-	} else if(selectedCard.ability="exchangeTwoCard") {
-		myHand.splice(myHandIndex, 1);
-		updateSelectCardDropdown(myHand);
-		myDiscard.push(selectedCard.splice(0,1));
-		document.getElementById('myDiscard').innerHTML = JSON.stringify(myDiscard);
-		moveToHand();
-	} else {
-		return null;
-	}
-	return selectedCard;
 }
 
 //Discard All Cards
 function discardAllCards () {
 	for (var i = 0; i < myHand.length; i++) {
 		myDiscard.push(myHand.splice(i,myHand.length));
-		
 	}
 	return myDiscard;	
 }
@@ -198,64 +286,208 @@ function discardAllCards () {
 var trashPile = [];
 
 function trashCard () {
-    var myHandIndex = document.getElementById('selCard');
 	var selectedCard = myHand[logCard][0];
 	if(selectedCard) {
-		myHand.splice(myHandIndex, 1);
+		trashPile.push(myHand.splice(logCard, 1));
 		updateSelectCardDropdown(myHand);
-		trashPile.push(selectedCard.splice(0,1));
 	} else {
 		return null;
 	}
-	return selectedCard;
 }
 
 function doubleACard () {
-    var myHandIndex = document.getElementById('selCard');
 	var selectedCard = myHand[logCard][0];
-	myHand.splice(myHandIndex, 1);
-	updateSelectCardDropdown(myHand);
-	totalDamagePoints += selectedCard.fightingValue;
-	return selectedCard;
+	totalPoints += selectedCard.fightingValue;
+	document.getElementById('totalDamagePoints').innerHTML = totalPoints;
+}
+
+function copyACard () {
+	var selectedCard = myHand[logCard][0];
+	tapCard();
 }
 
 function backToDeck() {
 	if(winRound = true) {
 		var myHandIndex = document.getElementById('selCard');
 		var selectedCard = myHand[logCard][0];
-			myHand.splice(myHandIndex, 1);
+			myHand.splice(logCard, 1);
 			updateSelectCardDropdown(myHand);
 			myDeck.push.appendChild(selectedCard.splice(0,1));
 	}
 }
 
+var sortThreeCards = [];
+
+function sortThree () {
+	if (myDeck.length > 0) {
+		for(var i = 0; i < 3; i++) {
+			sortThreeCards.push(myDeck.splice(0,1));
+		}
+	}
+	else {
+		return null;
+	}
+	//return myHand;
+	updateSortedCards();
+}
+
+function updateSortedCards() {
+    var mySortIndex = document.getElementById('sortThreeCards');
+	mySortIndex.innerHTML = '';
+	
+	for(var i = 0; i < sortThreeCards.length; i++){
+		var card = sortThreeCards[i];
+		console.log(card[0].title);
+		if(card[0].title == "Idiot") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/idiot-card.png" style="margin-right:50px; margin-bottom: 20px;"></a>';
+		}
+		else if(card[0].title == "Starving") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/starving-card.png" style="margin-right:50px; margin-bottom: 20px;"></a>';
+		}
+		else if(card[0].title == "Harvesting") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/harvesting-card.png" style="margin-right:50px; margin-bottom: 20px;"></a>';
+		}
+		else if(card[0].title == "Endurance") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/endurance-card.png" style="margin-right:50px; margin-bottom: 20px;"></a>';
+		}
+		else if(card[0].title == "Brilliance") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/brilliance-card.png" style="margin-right:50px; margin-bottom: 20px;"></a>';
+		}
+		else if(card[0].version == "ExplorationOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-weapon.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-multiply.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-recycle.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationFive") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-repeat.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationSix") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-nourishment.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-contact.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-optimization.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-prioritization.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-optimization.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-contact.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationFive") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-nourishment.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationSix") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-tools.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-exchange.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-nourishment.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-recycle.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarFive") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-repeat.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarSix") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-minusphase.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarSeven") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+	document.getElementById('sortThreeCards').innerHTML += cardButton;
+	}
+	document.getElementById('discardCard').style.display = "block";
+	document.getElementById('placeOnDeck').style.display = "block";
+	document.getElementById('completeSort').style.display = "block";
+}
+
+function discard () {
+	var mySortIndex = document.getElementById('sortThreeCards');
+	var selectedCard = sortThreeCards[logCard][0];
+		sortThreeCards.splice(mySortIndex, 1);
+		myDiscard.push(selectedCard);
+		sortThreeCards[logCard] = '';
+		updateSortedCards();
+}
+
+var deckHolder = [];
+
+function placeOnDeck () {
+    var mySortIndex = document.getElementById('sortThreeCards');
+	var selectedCard = sortThreeCards[logCard][0];
+		sortThreeCards.splice(mySortIndex, 1);
+		deckHolder.push(selectedCard);
+		sortThreeCards[logCard] = '';
+		updateSortedCards();
+}
+
+function completeSort () {
+	deckHolder.push(myDeck);
+	myDeck = [];
+		for(var i = 0; i < deckHolder[2].length; i++) {
+			deckHolder.push(deckHolder[2][i]);
+		}
+		deckHolder[2] = '';
+	myDeck.push(deckHolder);
+	deckHolder = [];
+	
+}
+
 //Create Endangerement/Dexterity Deck (Weapon should be replaced and Martian Attack)
 function startingEDdeck() {
 	var edCards = [
-		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Weapon', fightingValue: 2, ability: null, destroyPoints: 1, numCards: 3},
-		{endangerementTitle: 'Wild Winds', phaseOneValue: 4, phaseTwoValue: 7, phaseThreeValue: 11, drawAmount: 4, dexterityTitle: 'Discovery', fightingValue: 3, ability: "destroyCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Discovery', fightingValue: 1, ability: "destroyCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Multiply', fightingValue: 2, ability: "doubleCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Tools', fightingValue: 0, ability: "addTwoCard", destroyPoints: 1, numCards: 2},
-		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Optimization', fightingValue: 2, ability: "addOneCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Multiply', fightingValue: 1, ability: "doubleCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Wild Winds', phaseOneValue: 4, phaseTwoValue: 7, phaseThreeValue: 11, drawAmount: 4, dexterityTitle: 'Contact', fightingValue: 3, ability: "sortThreeCards", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Wild Winds', phaseOneValue: 4, phaseTwoValue: 7, phaseThreeValue: 11, drawAmount: 4, dexterityTitle: 'Optimization', fightingValue: 3, ability: "addOneCard", destroyPoints: 1, numCards: 1},
+		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Weapon', fightingValue: 2, ability: null, destroyPoints: 1, numCards: 3, version: 'ExplorationOne'},
+		{endangerementTitle: 'Sandstorm', phaseOneValue: 4, phaseTwoValue: 7, phaseThreeValue: 11, drawAmount: 4, dexterityTitle: 'Discovery', fightingValue: 3, ability: "destroyCard", destroyPoints: 1, numCards: 1, version: 'SandstormOne'},
+		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Discovery', fightingValue: 1, ability: "destroyCard", destroyPoints: 1, numCards: 1,  version: 'ExplorationTwo'},
+		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Multiply', fightingValue: 2, ability: "doubleCard", destroyPoints: 1, numCards: 1, version: 'DeepExplorationOne'},
+		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Tools', fightingValue: 0, ability: "addTwoCard", destroyPoints: 1, numCards: 2, version: 'CleanSolarOne'},
+		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Optimization', fightingValue: 2, ability: "addOneCard", destroyPoints: 1, numCards: 1, version: 'DeepExplorationTwo'},
+		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Multiply', fightingValue: 1, ability: "doubleCard", destroyPoints: 1, numCards: 1,  version: 'ExplorationThree'},
+		{endangerementTitle: 'Sandstorm', phaseOneValue: 4, phaseTwoValue: 7, phaseThreeValue: 11, drawAmount: 4, dexterityTitle: 'Contact', fightingValue: 3, ability: "sortThreeCards", destroyPoints: 1, numCards: 1, version: 'SandstormTwo'},
+		{endangerementTitle: 'Sandstorm', phaseOneValue: 4, phaseTwoValue: 7, phaseThreeValue: 11, drawAmount: 4, dexterityTitle: 'Optimization', fightingValue: 3, ability: "addOneCard", destroyPoints: 1, numCards: 1, version: 'SandstormThree'},
 		{endangerementTitle: 'Martian Attack', phaseOneValue: 5, phaseTwoValue: 9, phaseThreeValue: 14, drawAmount: 5, dexterityTitle: 'Weapon', fightingValue: 4, ability: null, destroyPoints: 1, numCards: 2},
-		{endangerementTitle: 'Wild Winds', phaseOneValue: 4, phaseTwoValue: 7, phaseThreeValue: 11, drawAmount: 4, dexterityTitle: 'Prioritization', fightingValue: 3, ability: "exchangeOneCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Prioritization', fightingValue: 0, ability: "exchangeTwoCard", destroyPoints: 1, numCards: 2},
-		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Contact', fightingValue: 2, ability: "sortThreeCards", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Recycle', fightingValue: 1, ability: "belowPile", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Nourishment', fightingValue: 0, ability: "addOneLife", destroyPoints: 1, numCards: 2},
-		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Recycle', fightingValue: 0, ability: "belowPile", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Discovery', fightingValue: 2, ability: "destroyCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Repeat', fightingValue: 0, ability: "copyCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Knowledge', fightingValue: 0, ability: "minusOnePhase", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Repeat', fightingValue: 1, ability: "copyCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Nourishment', fightingValue: 1, ability: "addOneLife", destroyPoints: 1, numCards: 2},
-		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Nourishment', fightingValue: 2, ability: "addOneLife", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Prioritization', fightingValue: 2, ability: "doubleCard", destroyPoints: 1, numCards: 1},
-		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Discovery', fightingValue: 0, ability: "destroyCard", destroyPoints: 1, numCards: 1},
+		{endangerementTitle: 'Sandstorm', phaseOneValue: 4, phaseTwoValue: 7, phaseThreeValue: 11, drawAmount: 4, dexterityTitle: 'Prioritization', fightingValue: 3, ability: "exchangeOneCard", destroyPoints: 1, numCards: 1, version: 'SandstormFour'},
+		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Prioritization', fightingValue: 0, ability: "exchangeTwoCard", destroyPoints: 1, numCards: 2, version: 'CleanSolarTwo'},
+		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Contact', fightingValue: 2, ability: "sortThreeCards", destroyPoints: 1, numCards: 1, version: 'DeepExplorationThree'},
+		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Recycle', fightingValue: 1, ability: "belowPile", destroyPoints: 1, numCards: 1,  version: 'ExplorationFour'},
+		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Nourishment', fightingValue: 0, ability: "addOneLife", destroyPoints: 1, numCards: 2, version: 'CleanSolarThree'},
+		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Recycle', fightingValue: 0, ability: "belowPile", destroyPoints: 1, numCards: 1, version: 'CleanSolarFour'},
+		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Discovery', fightingValue: 2, ability: "destroyCard", destroyPoints: 1, numCards: 1, version: 'DeepExplorationFour'},
+		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Repeat', fightingValue: 0, ability: "copyCard", destroyPoints: 1, numCards: 1, version: 'CleanSolarFive'},
+		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Knowledge', fightingValue: 0, ability: "minusOnePhase", destroyPoints: 1, numCards: 1, version: 'CleanSolarSix'},
+		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Repeat', fightingValue: 1, ability: "copyCard", destroyPoints: 1, numCards: 1,  version: 'ExplorationFive'},
+		{endangerementTitle: 'Exploration', phaseOneValue: 1, phaseTwoValue: 3, phaseThreeValue: 6, drawAmount: 2, dexterityTitle: 'Nourishment', fightingValue: 1, ability: "addOneLife", destroyPoints: 1, numCards: 2,  version: 'ExplorationSix'},
+		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Nourishment', fightingValue: 2, ability: "addOneLife", destroyPoints: 1, numCards: 1, version: 'DeepExplorationFive'},
+		{endangerementTitle: 'Deep Exploration', phaseOneValue: 2, phaseTwoValue: 5, phaseThreeValue: 8, drawAmount: 3, dexterityTitle: 'Prioritization', fightingValue: 2, ability: "doubleCard", destroyPoints: 1, numCards: 1, version: 'DeepExplorationSix'},
+		{endangerementTitle: 'Clean Solar', phaseOneValue: 0, phaseTwoValue: 1, phaseThreeValue: 3, drawAmount: 1, dexterityTitle: 'Discovery', fightingValue: 0, ability: "destroyCard", destroyPoints: 1, numCards: 1, version: 'CleanSolarSeven'},
 	]
 	
 	var deck = [];
@@ -292,11 +524,74 @@ function updateEDCard(edDeckCards){
 	for(var i = 0; i < edDeckCards.length; i++){
 		var card = edDeckCards[i];
 		var edcardString = JSON.stringify(card);
-		if(card[0].endangerementTitle == "Exploration") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/Exploration.jpg" style="margin-right:50px;"></img></a>';
+		if(card[0].version == "ExplorationOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-weapon.png" style="margin-right:50px;"></img></a>';
 		}
-		else if(card[0].endangerementTitle == "Wild Winds") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/WildWinds.jpg" style="margin-right:50px;"></img></a>';
+		else if(card[0].version == "ExplorationTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-multiply.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-recycle.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationFive") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-repeat.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "ExplorationSix") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-nourishment.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-contact.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-optimization.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "SandstormFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-prioritization.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-optimization.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-contact.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-discovery.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationFive") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-nourishment.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "DeepExplorationSix") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarOne") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-tools.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarTwo") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-exchange.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarThree") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-nourishment.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarFour") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-recycle.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarFive") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-repeat.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarSix") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-minusphase.png" style="margin-right:50px;"></img></a>';
+		}
+		else if(card[0].version == "CleanSolarSeven") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-discovery.png" style="margin-right:50px;"></img></a>';
 		}
 		edCardDropdown.innerHTML += cardButton;
 	}
@@ -334,25 +629,32 @@ function cardEDClicked (cardEDIndex) {
 		
 function moveToPlay () {
 		var selectIndex = document.getElementById('edselCard');
-		var selectedEDCard = selectionDeck[logEDCard];
+		var selectedEDCard = selectionDeck[logEDCard][0];
 		if(selectedEDCard) {
 			inPlay.splice(selectIndex, 1);
 			updateEDCard(inPlay);
 			inPlay.push(selectionDeck.splice(0,1));
+			var edCardValue = inPlay[0][0][0];
+			inPlay = [edCardValue];
+				if(edCardValue.endangerementTitle == "Exploration") {
+					document.getElementById('inPlay').innerHTML = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-tools.png"></img>';
 			}
 			else {
 				return null;
 			}
 	//return inPlay;
-	document.getElementById('inPlay').innerHTML = JSON.stringify(inPlay);
+}
 }
 
 //Endangerement/Dexterity Discard
 var edDiscard = [];
 
 function discardEDCard () {
-	if (currentED.length > 0) {
-		edDiscard.push(currentED.splice(0,1));
+	if (inPlay.length > 0) {
+		edDiscard.push(inPlay.splice(0,1));
+		var selectedEDCard = document.getElementById('edselCard');
+		selectedEDCard.innerHTML = '';
+		document.getElementById('inPlay').innerHTML = '';
 	}
 	else {
 		return null;
@@ -364,6 +666,9 @@ function discardEDCard () {
 function discardMyED () {
 	if (winRound) {
 		myDiscard.push(inPlay.splice(0,1));
+		var selectedEDCard = document.getElementById('edselCard');
+		selectedEDCard.innerHTML = '';
+		document.getElementById('inPlay').innerHTML = '';
 	}
 	else {
 		return null;
@@ -373,49 +678,75 @@ function discardMyED () {
 
 //Play Against Hazard Card
 
-var totalDamagePoints = (function() {
-	var totalPoints = 0
+var totalPoints = 0;
+function totalDamagePoints () {
+	totalPoints=0;
 	for (var i = 0; i < myHand.length; i++) {
 		var inMyHand = myHand[i];
 		var myHandIs = inMyHand[0].fightingValue;
 		totalPoints += myHandIs;
 	}
+	document.getElementById('totalDamagePoints').innerHTML = totalPoints;
 	return totalPoints;
-}) ();
+}
+
+
+    
 
 //Phase Value To Change ONCE PHASE FUNCTION COMPLETED...
 //Check Strength Of Endangerement/Dexterity Card
-var edCardStrength = (function() {	
+var edCardValue = 0;
+
+function edCardStrength () {	
 	if(inPlay.length > 0) {
-		var cardStrength = inPlay[0][0].phaseOneValue;
-		return cardStrength;
+		if (phaseCalls === 1) {
+			var cardStrength = inPlay[0].phaseOneValue;
+			edCardValue += cardStrength;
+		} else if (phaseCalls === 2) {
+			var cardStrength = inPlay[0].phaseTwoValue;
+			edCardValue += cardStrength;
+		} else if (phaseCalls === 3) {
+			var cardStrength = inPlay[0].phaseThreeValue;
+			edCardValue += cardStrength;
+		}
 	}
 	else {
 		return null;
 	}
-}) ();
+}
 
 //Discard All Cards
 function winRound() {
-	if(totalDamagePoints >= edCardStrength && giveLife.called != true) {
+	if(totalPoints >= edCardValue && giveLife.called) {
 		discardAllCards();
-		discardMyED();
-	}
-	else if(totalDamagePoints >= edCardStrength && giveLife.called) {
-		discardAllCards();
+		var selCardDropdown = document.getElementById('selCard');
+		selCardDropdown.innerHTML = '';
+		for(var i = 1; i < myDiscard.length; i++) {
+			myDiscard[0].push(myDiscard[i].splice(0,1));
+		}
+		totalPoints = 0;
 		discardEDCard();
-	}
-	else {
+	} else if(totalPoints >= edCardValue) {
+		discardAllCards();
+		var selCardDropdown = document.getElementById('selCard');
+		selCardDropdown.innerHTML = '';
+		discardMyED();
+		for(var i = 1; i < myDiscard.length; i++) {
+			myDiscard[0].push(myDiscard[i].splice(0,1));
+		}
+		totalPoints = 0;
+	} else {
 		return null
 	}
 }
 
 //Using Life Points To Win
 function giveLife() {
-	if (mylifePoints > 0) {
+	if (mylifePoints > 0 && inPlay.length > 0) {
 		mylifePoints--;
 		lifePointsBank++;
-		totalDamagePoints++;
+		totalPoints++;
+		document.getElementById('totalDamagePoints').innerHTML = totalPoints;
 		giveLife.called = true;
 	}
 	else {
@@ -426,7 +757,7 @@ function giveLife() {
 
 //Using Life Points To Get New Card
 function gainCard() {
-	if (mylifePoints > 0) {
+	if (mylifePoints > 0 && inPlay.length > 0) {
 		mylifePoints--;
 		lifePointsBank++;
 		moveToHand();
@@ -436,28 +767,115 @@ function gainCard() {
 	}
 }
 
-//Reshuffle Deck
-function reshuffle() {
-	if(myDeck = 0) {
-		Array.prototype.push.apply(myDeck, myDiscard);
-	} else {
+//Trash Card For Life
+function trashCardLife() {
+	var myHandIndex = document.getElementById('selCard');
+	var selectedCard = myHand[logCard][0];
+	if (mylifePoints > 0 && selectedCard) {
+		trashCard ()
+		mylifePoints--;
+		lifePointsBank++;
+	}
+	else {
 		return null;
 	}
 }
 
+//Reshuffle Deck
+
+var pushedDeck = [];
+function reshuffle() {
+		Array.prototype.push.apply(pushedDeck, myDiscard[0]);
+		for(var i = 0; i < pushedDeck.length; i++) {
+			myDeck.push(pushedDeck[i][0]);
+		}
+		pushedDeck = [];
+}
+
 //Create Phase Cards AND Starting Phase Card
-//NO Current Phase Card YET
-/*var phase = phaseCards[0];
-var currentPhase = (function () {
-	var phaseCards = ["Green", "Yellow", "Red"];
-	if(myDeck = 0) {
-		if(reshuffle.numInstances = 1) {
-			phase = phaseCards[1];
-		} else if (reshuffle.numInstances = 2) {
-			phase = phaseCards[2];
-		} else {
+var phaseCalls = 1;
+function currentPhase () {
+	var phaseType = document.getElementById('phase');
+	if(phaseCalls === 1) {
+		phaseType.innerHTML = '';
+		var phaseCard = '<p class = "squareone"></p>';
+		phaseCalls++;
+	} else if(phaseCalls === 2) {
+		phaseType.innerHTML = '';
+		var phaseCard = '<p class = "squaretwo"></p>';
+		phaseCalls++;
+	} else if(phaseCalls === 3) {
+		phaseType.innerHTML = '';
+		var phaseCard = '<p class = "squarethree"></p>';
+		phaseCalls++;
+	} else {
 			return null;
+	}
+	phaseType.innerHTML += phaseCard;
+}
+
+function startingAgeCards() {
+	var ageCards = [		
+		{title: 'Moronic', fightingValue: -4, ability: 'null', destroyPoints: 1, numCards: 1},
+		{title: 'Suicidal', fightingValue: -5, ability: 'null', destroyPoints: 1, numCards: 1},
+		{title: 'Very Hungry', fightingValue: 0, ability: 'minusTwoLife', destroyPoints: 1, numCards: 1},
+		{title: 'Stupid', fightingValue: -2, ability: 'null', destroyPoints: 1, numCards: 2},
+		{title: 'Hungry', fightingValue: 0, ability: 'minusOneLife', destroyPoints: 1, numCards: 1},
+		{title: 'Distracted', fightingValue: -1, ability: 'null', destroyPoints: 1, numCards: 1},
+		{title: 'Scared', fightingValue: 0, ability: 'highestCard', destroyPoints: 1, numCards: 2},
+		{title: 'Very Stupid', fightingValue: -3, ability: 'null', destroyPoints: 1, numCards: 1},
+		{title: 'Very Tired', fightingValue: 0, ability: 'stop', destroyPoints: 1, numCards: 1},
+		]
+	
+	var deck = [];
+	for(var i = 0; i < ageCards.length; i++) {
+		var ageCard = ageCards[i];
+		for(var x = 0; x < ageCard.numCards; x++) {
+			deck.push(ageCard);
 		}
 	}
-	return phase;
-}*/
+	
+	return deck;
+}
+
+var ageDeck = new startingAgeCards ();
+
+//Shuffle And Deal Endangerement/Dexterity Deck
+function ageDeckShuffle(n) {
+	for(var i = 0; i < n; i++)
+		for(var j = 0; j < ageDeck.length; j++) {
+			var k = Math.floor(Math.random() * ageDeck.length);
+			var temp = ageDeck[j];
+			ageDeck[j] = ageDeck[k];
+			ageDeck[k] = temp;
+		}
+}
+
+var selectionAgeDeck = [];
+
+function updateAgeCard(ageDeckCards){
+	
+	var ageCardDropdown = document.getElementById('ageselCard');
+	ageCardDropdown.innerHTML = '';
+	
+	for(var i = 0; i < ageDeckCards.length; i++){
+		var card = ageDeckCards[i];
+		var agecardString = JSON.stringify(card);
+		if(card[0].title == "Moronic") {
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-weapon.png" style="margin-right:50px;"></img></a>';
+		}
+	}
+}
+		
+function moveToDeck () {
+	if (ageDeck.length > 0) {
+		pushedDeck.push(ageDeck.splice(0,1));
+		for(var i = 0; i < pushedDeck.length; i++) {
+			myDeck.push(pushedDeck[i][0]);
+		}
+		pushedDeck = [];
+	}
+	else {
+		return null;
+	}
+}

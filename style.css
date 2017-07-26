@@ -10,9 +10,84 @@ h1 {
 }
 
 .agecell {
-	background-image: url("file:///C:/Users/Tamas/Documents/Java/Stranded/cardimg/AgingCardBackground.png");
 	border: 3px solid #fff;
-	background-repeat: repeat;
+	/*background-image: url("file:///C:/Users/Tamas/Documents/Java/Stranded/cardimg/board-bg-5.png");
+	background-repeat: repeat;*/
+	background-color: #f56200;
+	background-image: url("https://www.transparenttextures.com/patterns/large-leather.png");
+}
+
+.dangercell {
+	border: 3px solid #fff;
+	background-color: #f56200;
+	background-image: url("https://www.transparenttextures.com/patterns/large-leather.png");
+	/*background-color: #f5550c;
+	background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");*/
+}
+
+.mydeckcell {
+	border: 3px solid #fff;
+	/*background-image: url("file:///C:/Users/Tamas/Documents/Java/Stranded/cardimg/board-bg-2.png");
+	background-repeat: repeat;*/
+	background-color: #f56200;
+	background-image: url("https://www.transparenttextures.com/patterns/large-leather.png");
+}
+
+.myhandcell {
+	border: 3px solid #fff;
+	/*background-image: url("file:///C:/Users/Tamas/Documents/Java/Stranded/cardimg/board-bg-3.png");
+	background-repeat: repeat;*/
+	/*background-color: #fff;
+	background-image: url("https://www.transparenttextures.com/patterns/shattered-dark.png");*/
+	background-color: black;
+}
+
+.computerbg {
+	background-color: black;
+	font-family: 'OpenSansBold', sans-serif;
+	font-weight: 300;
+	color: #00FF33;
+	border: 3px solid #fff;
+	text-align: center;
+}
+
+.inplaycell {
+	background-color: #f5550c;
+	background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
+}
+
+.squareone {
+	width: 20px;
+	height: 20px;
+	background: #00FF33;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.squaretwo {
+	width: 20px;
+	height: 20px;
+	background: #FFF400;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.squarethree {
+	width: 20px;
+	height: 20px;
+	background: #C2272D;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.playarea {
+    text-align: center;
+	font-family: Impact, Charcoal, sans-serif;
+    font-size: 400%;
+	color: black;
 }
 
 /*table, th, td {
@@ -30,6 +105,16 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-leather
 .cardselect:hover {
 	box-shadow: inset 0 100px 0 0 #fff;
     color: #FFF;
+}
+
+.centered {
+	box-shadow: 10px 10px 5px #666666;
+	border: 8px solid #fff;
+	margin-top: 5%;
+    margin-left: auto;
+	margin-right: auto;
+	margin-bottom:5%;
+	display: block;
 }
 
 .headertable {
@@ -111,4 +196,8 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-leather
 .card_select_bg:hover {
     box-shadow: inset 0 100px 0 0 #31302B;
     color: #FFF;
+}
+
+.centeredbuttons {
+	text-align: center;
 }
