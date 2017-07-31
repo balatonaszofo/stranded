@@ -11,8 +11,6 @@ h1 {
 
 .agecell {
 	border: 3px solid #fff;
-	/*background-image: url("file:///C:/Users/Tamas/Documents/Java/Stranded/cardimg/board-bg-5.png");
-	background-repeat: repeat;*/
 	background-color: #f56200;
 	background-image: url("https://www.transparenttextures.com/patterns/large-leather.png");
 }
@@ -21,24 +19,16 @@ h1 {
 	border: 3px solid #fff;
 	background-color: #f56200;
 	background-image: url("https://www.transparenttextures.com/patterns/large-leather.png");
-	/*background-color: #f5550c;
-	background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");*/
 }
 
 .mydeckcell {
 	border: 3px solid #fff;
-	/*background-image: url("file:///C:/Users/Tamas/Documents/Java/Stranded/cardimg/board-bg-2.png");
-	background-repeat: repeat;*/
 	background-color: #f56200;
 	background-image: url("https://www.transparenttextures.com/patterns/large-leather.png");
 }
 
 .myhandcell {
 	border: 3px solid #fff;
-	/*background-image: url("file:///C:/Users/Tamas/Documents/Java/Stranded/cardimg/board-bg-3.png");
-	background-repeat: repeat;*/
-	/*background-color: #fff;
-	background-image: url("https://www.transparenttextures.com/patterns/shattered-dark.png");*/
 	background-color: black;
 }
 
@@ -115,6 +105,38 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-leather
 	margin-right: auto;
 	margin-bottom:5%;
 	display: block;
+}
+
+.cardselected {
+	margin-right:50px; 
+	margin-bottom: 20px;
+}
+
+.cardselected:link { 
+    background: #000000;
+    border: 10px solid #000000;
+}
+
+.cardselected:hover {
+    background: #e1e1e1;
+    border: 10px solid #d0d0d0;
+}
+
+.cardselected:active { 
+    background: #e1e1e1;
+    border: 10px solid #d0d0d0;
+}
+
+.cardselected:visited { 
+    background: #e1e1e1;
+    border: 10px solid #d0d0d0;
+}
+
+.rotation {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
 }
 
 .headertable {
