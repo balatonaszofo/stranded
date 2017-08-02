@@ -44,6 +44,18 @@ myDeck = new startDeck();
 var selectedCard = [];
 var myDeckShuffle = 0;
 
+function shuffleCall() {
+	document.getElementById('shuffled').innerHTML = "Shuffled!";
+}
+
+function shuffleEDCall() {
+	document.getElementById('shuffleED').innerHTML = "Shuffled!";
+}
+
+function shuffleAgeCall() {
+	document.getElementById('shuffleAge').innerHTML = "Shuffled!";
+}
+
 //Shuffle And Deal Starting Deck
 function stackShuffle(n) {
 	if (myDiscard.length > 0) {
@@ -56,6 +68,8 @@ function stackShuffle(n) {
 				myDeck[k] = temp;
 			}
 		}
+	shuffleCall();
+	document.getElementById('addCard').innerHTML = "";
 	} else if (myDeck.length === 0 || myDeckShuffle === 0) {
 		myDeckShuffle++;
 		for(var i = 0; i < n; i++) {
@@ -66,6 +80,8 @@ function stackShuffle(n) {
 				myDeck[k] = temp;
 			}
 		}
+	shuffleCall();
+	document.getElementById('addCard').innerHTML = "";	
 	} else {
 		return null;
 	}
@@ -232,6 +248,8 @@ function moveToHand () {
 		totalDamagePoints();
 		drawTotal();
 		ageEnable();
+		document.getElementById('shuffled').innerHTML = "";
+		document.getElementById('shuffleAge').innerHTML = "";
 	}
 	else if (myDeck.length > 0 && myHand.length === 0 && inPlay.length > 0 && drawPoints < inPlay[0][0].drawAmount) {
 		myHand.push(myDeck.splice(0,1));
@@ -239,6 +257,8 @@ function moveToHand () {
 		totalDamagePoints();
 		drawTotal();
 		ageEnable();
+		document.getElementById('shuffled').innerHTML = "";
+		document.getElementById('shuffleAge').innerHTML = "";
 	}
 	else {
 		return null;
@@ -637,6 +657,8 @@ function edDeckShuffle(n) {
 				edDeck[k] = temp;
 			}
 		currentPhase ();
+		shuffleEDCall();
+		
 	} else if (edDeck.length === 0 || edDeckShuffleNum === 0) {
 		edDeckShuffleNum++;
 		for(var i = 0; i < n; i++)
@@ -647,7 +669,8 @@ function edDeckShuffle(n) {
 				edDeck[k] = temp;
 			}
 		currentPhase ();
-	} else {
+		shuffleEDCall();
+		} else {
 		return null;
 	}
 }
@@ -743,11 +766,13 @@ function moveEDHand () {
 			selectionDeck.push(finalDeck.splice(0,1));
 			updateFinalCard(selectionDeck);
 		}
+		document.getElementById('shuffleED').innerHTML = "";
 	} else if (edDeck.length > 0) {
 		for(var i = 0; i < 2; i++) {
 			selectionDeck.push(edDeck.splice(0,1));
 			updateEDCard(selectionDeck);
 		}
+		document.getElementById('shuffleED').innerHTML = "";
 	}
 	else {
 		return null;
@@ -1026,7 +1051,13 @@ function gainCard() {
 function trashCardLife() {
 	var myHandIndex = document.getElementById('selCard');
 	var selectedCard = myHand[logCard][0];
-	if (mylifePoints > 0 && selectedCard) {
+	if (mylifePoints > 1 && selectedCard) {
+		trashCard ()
+		mylifePoints -= 2;
+		lifePointsBank += 2;
+		totalDamagePoints ();
+	}
+	else if (mylifePoints > 0 && selectedCard) {
 		trashCard ()
 		mylifePoints--;
 		lifePointsBank++;
@@ -1108,13 +1139,14 @@ var ageDeck = new startingAgeCards ();
 
 //Shuffle And Deal Endangerement/Dexterity Deck
 function ageDeckShuffle(n) {
-	for(var i = 0; i < n; i++)
+	for(var i = 0; i < n; i++) 
 		for(var j = 0; j < ageDeck.length; j++) {
 			var k = Math.floor(Math.random() * ageDeck.length);
 			var temp = ageDeck[j];
 			ageDeck[j] = ageDeck[k];
 			ageDeck[k] = temp;
 		}
+	shuffleAgeCall();
 }
 
 var selectionAgeDeck = [];
@@ -1140,6 +1172,8 @@ function moveToDeck () {
 			myDeck.push(pushedDeck[i][0]);
 		}
 		pushedDeck = [];
+		document.getElementById('shuffleAge').innerHTML = "";
+		document.getElementById('addCard').innerHTML = "Added!";
 	}
 	else {
 		return null;

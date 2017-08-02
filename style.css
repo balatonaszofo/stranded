@@ -27,6 +27,20 @@ h1 {
 	background-image: url("https://www.transparenttextures.com/patterns/large-leather.png");
 }
 
+.flashtext {
+	text-align: center;
+	font-family: 'OpenSansBold', sans-serif;
+	font-weight: 600;
+	font-size: 300%;
+	color: #fff;
+	width: 60%;
+	background-color: #00FF33;
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .myhandcell {
 	border: 3px solid #fff;
 	background-color: black;
@@ -136,7 +150,6 @@ background-image: url("https://www.transparenttextures.com/patterns/dark-leather
     -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
     transform: rotate(180deg);
-}
 }
 
 .headertable {

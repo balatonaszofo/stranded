@@ -35,8 +35,10 @@
 </td>
 <td class="agecell">
 <img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/age-card-back.jpg" class="centered"/>
+<div id = "shuffleAge" class="flashtext"></div>
+<div id = "addCard" class="flashtext"></div>
 	<input type="button" class="card_select_bg" onclick="ageDeckShuffle(1);return false;" value="Shuffle" />
-	<input type="button" class="card_select_bg" onclick="moveToDeck();" value="Add Card" />
+	<input type="button" class="card_select_bg" onclick="moveToDeck();" value="Add Card"/>
 </td>
 <td class="computerbg">
 <h1>RESERVE ACTIONS</h1>
@@ -51,6 +53,7 @@
 <tr>
 <td class="dangercell">
 <img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/danger-card-back.jpg" class="centered"/>
+<div id = "shuffleED" class="flashtext"></div>
 
 <p class="centeredbuttons">
 <input type="button" class="card_select_bg" onclick="edDeckShuffle(1);return false;" value="Shuffle" />
@@ -67,6 +70,7 @@
 </td>
 <td class="mydeckcell">
 <img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/matt-card-back.jpg" class="centered"/>
+<div id = "shuffled" class="flashtext"></div>
 
 <p class="centeredbuttons">
 <input type="button" class="card_select_bg" onclick="stackShuffle(1);return false;" value="Shuffle Hand" />
