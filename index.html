@@ -7,14 +7,25 @@
 <body>
 <table class="headertable">
 <tr class="curvetable">
-<td class="headercell">
+<td class="headerleft">
+
+</td>
+<td class="headercenter">
 <h1 class="logoposition">STRANDED...|</h1>
+</td>
+<td class="headerright">
+	<div class="centeredbuttons">
+	<p><h2>Additional Information</h2></p>
+	<a href="tutorial.html"><button class="card_select_bg">Tutorial</button></a>
+	<a href="about.html"><button class="card_select_bg">About</button></a>
+	</div>
 </td>
 </tr>
 </table>
 
 <table class="maintable">
 <tr>
+
 </tr>
 <tr>
 <td class="computerbg">
@@ -37,8 +48,10 @@
 <img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/age-card-back.jpg" class="centered"/>
 <div id = "shuffleAge" class="flashtext"></div>
 <div id = "addCard" class="flashtext"></div>
-	<input type="button" class="card_select_bg" onclick="ageDeckShuffle(1);return false;" value="Shuffle" />
-	<input type="button" class="card_select_bg" onclick="moveToDeck();" value="Add Card"/>
+	<div class="centeredbuttons">
+<input type="button" class="card_select_bg" onclick="ageDeckShuffle(1);return false;" value="Shuffle" />
+<input type="button" class="card_select_bg" onclick="moveToDeck();" value="Add Card"/>
+</div>
 </td>
 <td class="computerbg">
 <h1>RESERVE ACTIONS</h1>
@@ -52,7 +65,7 @@
 
 <tr>
 <td class="dangercell">
-<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/danger-card-back.jpg" class="centered"/>
+<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/danger-card-back.jpg" class="centered" id="emptyED">
 <div id = "shuffleED" class="flashtext"></div>
 
 <p class="centeredbuttons">
@@ -69,7 +82,7 @@
 	<div id="inPlay" class="centeredbuttons"></div>
 </td>
 <td class="mydeckcell">
-<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/matt-card-back.jpg" class="centered"/>
+	<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/matt-card-back.jpg" class="centered" id="empty"/>
 <div id = "shuffled" class="flashtext"></div>
 
 <p class="centeredbuttons">
@@ -115,4 +128,5 @@
 <script type="text/javascript" src="stack.js"></script>
 
 </body>
+
 </html>
