@@ -185,7 +185,7 @@ span {
 	padding-bottom: 100px;
 	width: 80%;
 	font-family: Helvetica, sans-serif;
-	background-image: url("file:///C:/Users/Tamas/Documents/Java/Stranded/cardimg/AstronautBackground.png");
+	background-image: url("cardimg/AstronautBackground.png");
 	background-repeat: no-repeat;
     background-position: 50% 10%; 
 }

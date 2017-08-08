@@ -70,7 +70,7 @@ function stackShuffle(n) {
 		}
 	shuffleCall();
 	document.getElementById('addCard').innerHTML = "";
-	document.getElementById('empty').src="C:/Users/Tamas/Documents/Java/Stranded/cardimg/matt-card-back.jpg";
+	document.getElementById('empty').src="cardimg/matt-card-back.jpg";
 	} else if (myDeck.length === 0 || myDeckShuffle === 0) {
 		myDeckShuffle++;
 		for(var i = 0; i < n; i++) {
@@ -83,7 +83,7 @@ function stackShuffle(n) {
 		}
 	shuffleCall();
 	document.getElementById('addCard').innerHTML = "";
-	document.getElementById('empty').src="C:/Users/Tamas/Documents/Java/Stranded/cardimg/matt-card-back.jpg";
+	document.getElementById('empty').src="cardimg/matt-card-back.jpg";
 	} else {
 		return null;
 	}
@@ -109,118 +109,118 @@ function updateSelectCardDropdown(deckOfCards){
 		var card = deckOfCards[i];
 		console.log(card[0].title);
 		if(card[0].title == "Idiot") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/idiot-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/idiot-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "Starving") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/starving-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/starving-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "Harvesting") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/harvesting-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/harvesting-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "Endurance") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/endurance-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/endurance-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "Brilliance") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/brilliance-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/brilliance-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "ExplorationOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-weapon.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-weapon.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-discovery.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-discovery.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-multiply.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-multiply.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-recycle.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-recycle.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationFive") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-repeat.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-repeat.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationSix") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-nourishment.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-nourishment.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "SandstormOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-discovery.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-discovery.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "SandstormTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-contact.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-contact.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "SandstormThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-optimization.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-optimization.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "SandstormFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-prioritization.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-prioritization.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-multiply.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-optimization.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-optimization.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-contact.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-contact.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-discovery.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-discovery.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationFive") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-nourishment.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-nourishment.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationSix") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-multiply.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-tools.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-tools.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-exchange.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-exchange.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-nourishment.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-nourishment.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-recycle.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-recycle.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarFive") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-repeat.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-repeat.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarSix") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-minusphase.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-minusphase.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarSeven") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-discovery.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-discovery.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CargoHaul") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/cargo-haul-weapon.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/cargo-haul-weapon.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "Moronic") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/moronic-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/moronic-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Suicidal") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/suicidal-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/suicidal-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Really Hungry") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/really-hungry-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/really-hungry-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Stupid") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/stupid-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/stupid-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Hungry") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/hungry-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/hungry-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Distracted") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/distracted-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/distracted-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Scared") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/scared-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/scared-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Really Stupid") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/really-stupid-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/really-stupid-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Really Tired") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/really-tired-card.png.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/really-tired-card.png.png" class="cardselected"></img></a>';
 		}
 		selCardDropdown.innerHTML += cardButton;
 	}
@@ -263,7 +263,7 @@ function moveToHand () {
 		document.getElementById('shuffleAge').innerHTML = "";
 	}
 	else {
-		document.getElementById('empty').src="C:/Users/Tamas/Documents/Java/Stranded/cardimg/empty-cards.jpg";
+		document.getElementById('empty').src="cardimg/empty-cards.jpg";
 		//return null;
 	}
 }
@@ -450,118 +450,118 @@ function updateSortedCards() {
 		var card = sortThreeCards[i];
 		console.log(card[0].title);
 		if(card[0].title == "Idiot") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/idiot-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/idiot-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "Starving") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/starving-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/starving-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "Harvesting") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/harvesting-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/harvesting-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "Endurance") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/endurance-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/endurance-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "Brilliance") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/brilliance-card.png" class="cardselected"></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/brilliance-card.png" class="cardselected"></a>';
 		}
 		else if(card[0].title == "ExplorationOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-weapon.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-weapon.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-discovery.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-discovery.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-multiply.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-multiply.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-recycle.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-recycle.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationFive") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-repeat.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-repeat.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "ExplorationSix") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-nourishment.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/exploration-nourishment.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "SandstormOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-discovery.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-discovery.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "SandstormTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-contact.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-contact.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "SandstormThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-optimization.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-optimization.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "SandstormFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-prioritization.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-prioritization.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-multiply.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-optimization.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-optimization.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-contact.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-contact.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-discovery.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-discovery.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationFive") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-nourishment.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-nourishment.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationSix") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-multiply.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-tools.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-tools.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-exchange.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-exchange.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-nourishment.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-nourishment.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-recycle.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-recycle.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarFive") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-repeat.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-repeat.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarSix") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-minusphase.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-minusphase.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarSeven") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-discovery.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-discovery.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "CargoHaul") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/cargo-haul-weapon.png" class="cardselected rotation"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/cargo-haul-weapon.png" class="cardselected rotation"></img></a>';
 		}
 		else if(card[0].title == "Moronic") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/moronic-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/moronic-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Suicidal") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/suicidal-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/suicidal-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Really Hungry") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/really-hungry-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/really-hungry-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Stupid") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/stupid-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/stupid-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Hungry") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/hungry-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/hungry-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Distracted") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/distracted-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/distracted-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Scared") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/scared-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/scared-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Really Stupid") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/really-stupid-card.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/really-stupid-card.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Really Tired") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/really-tired-card.png.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardClicked('+i+')" target="_blank"><img src = "cardimg/really-tired-card.png" class="cardselected"></img></a>';
 		}
 		
 	document.getElementById('sortThreeCards').innerHTML += cardButton;
@@ -662,7 +662,7 @@ function edDeckShuffle(n) {
 			}
 		currentPhase ();
 		shuffleEDCall();
-		document.getElementById('emptyED').innerHTML = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/danger-card-back.jpg" />';
+		document.getElementById('emptyED').innerHTML = '<img src = "cardimg/danger-card-back.jpg" />';
 	} else if (edDeck.length === 0 || edDeckShuffleNum === 0) {
 		edDeckShuffleNum++;
 		for(var i = 0; i < n; i++)
@@ -674,7 +674,7 @@ function edDeckShuffle(n) {
 			}
 		currentPhase ();
 		shuffleEDCall();
-		document.getElementById('emptyED').innerHTML = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/danger-card-back.jpg" />';
+		document.getElementById('emptyED').innerHTML = '<img src = "cardimg/danger-card-back.jpg" />';
 		} else {
 		return null;
 	}
@@ -690,76 +690,76 @@ function updateEDCard(edDeckCards){
 		var card = edDeckCards[i];
 		var edcardString = JSON.stringify(card);
 		if(card[0].title == "ExplorationOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-weapon.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/exploration-weapon.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "ExplorationTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-discovery.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/exploration-discovery.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "ExplorationThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-multiply.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/exploration-multiply.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "ExplorationFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-recycle.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/exploration-recycle.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "ExplorationFive") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-repeat.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/exploration-repeat.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "ExplorationSix") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-nourishment.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/exploration-nourishment.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "SandstormOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-discovery.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-discovery.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "SandstormTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-contact.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-contact.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "SandstormThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-optimization.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-optimization.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "SandstormFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-prioritization.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/sandstorm-prioritization.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-multiply.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-optimization.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-optimization.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-contact.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-contact.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-discovery.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-discovery.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationFive") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-nourishment.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-nourishment.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "DeepExplorationSix") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/deep-exploration-multiply.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarOne") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-tools.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-tools.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarTwo") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-exchange.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-exchange.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarThree") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-nourishment.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-nourishment.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarFour") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-recycle.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-recycle.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarFive") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-repeat.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-repeat.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarSix") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-minusphase.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-minusphase.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "CleanSolarSeven") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-discovery.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/clean-solar-discovery.png" class="cardselected"></img></a>';
 		} 
 		else if(card[0].title == "CargoHaul") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/cargo-haul-weapon.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/cargo-haul-weapon.png" class="cardselected"></img></a>';
 		}
 		edCardDropdown.innerHTML += cardButton;
 	}
@@ -780,7 +780,7 @@ function moveEDHand () {
 		document.getElementById('shuffleED').innerHTML = "";
 	}
 	else {
-		document.getElementById('emptyED').innerHTML = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/empty-cards.jpg" />';
+		document.getElementById('emptyED').innerHTML = '<img src = "cardimg/empty-cards.jpg" />';
 	}
 	//return myHand;
 	//document.getElementById('selectionDeck').innerHTML = JSON.stringify(selectionDeck);
@@ -825,88 +825,88 @@ function moveToPlay () {
 			console.log(inPlay[0][0].title);
 
 		if(inPlay[0][0].title == "ExplorationOne") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-weapon.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-weapon.png"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationTwo") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-discovery.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-discovery.png"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationThree") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-multiply.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-multiply.png"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationFour") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-recycle.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-recycle.png"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationFive") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-repeat.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-repeat.png"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationSix") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-nourishment.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-nourishment.png"></img>';
 		}
 		else if(inPlay[0][0].title == "SandstormOne") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-discovery.png"></img>';
+			var cardButton = '<img src = "cardimg/sandstorm-discovery.png"></img>';
 		}
 		else if(inPlay[0][0].title == "SandstormTwo") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-contact.png"></img>';
+			var cardButton = '<img src = "cardimg/sandstorm-contact.png"></img>';
 		}
 		else if(inPlay[0][0].title == "SandstormThree") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-optimization.png"></img>';
+			var cardButton = '<img src = "cardimg/sandstorm-optimization.png"></img>';
 		}
 		else if(inPlay[0][0].title == "SandstormFour") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/sandstorm-prioritization.png"></img>';
+			var cardButton = '<img src = "cardimg/sandstorm-prioritization.png"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationOne") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-multiply.png"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationTwo") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-optimization.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-optimization.png"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationThree") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-contact.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-contact.png"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationFour") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-discovery.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-discovery.png"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationFive") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-nourishment.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-nourishment.png"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationSix") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/deep-exploration-multiply.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-multiply.png"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarOne") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-tools.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-tools.png"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarTwo") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-exchange.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-exchange.png"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarThree") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-nourishment.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-nourishment.png"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarFour") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-recycle.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-recycle.png"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarFive") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-repeat.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-repeat.png"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarSix") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-minusphase.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-minusphase.png"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarSeven") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/clean-solar-discovery.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-discovery.png"></img>';
 		}
 		else if(inPlay[0][0].title == "CargoHaul") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/cargo-haul-weapon.png"></img>';
+			var cardButton = '<img src = "cardimg/cargo-haul-weapon.png"></img>';
 		}
 		else if(inPlay[0][0].title == "Treck") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/treck-to-rocket.png"></img>';
+			var cardButton = '<img src = "cardimg/treck-to-rocket.png"></img>';
 		}
 		else if(inPlay[0][0].title == "Launch") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/prepare-launch.png"></img>';
+			var cardButton = '<img src = "cardimg/prepare-launch.png"></img>';
 		}
 		else if(inPlay[0][0].title == "Tether") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/tether.png"></img>';
+			var cardButton = '<img src = "cardimg/tether.png"></img>';
 		}
 		else if(inPlay[0][0].title == "IronMan") {
-			var cardButton = '<img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/iron-man.png"></img>';
+			var cardButton = '<img src = "cardimg/iron-man.png"></img>';
 		}
 		else {
 			return null;
@@ -1175,7 +1175,7 @@ function updateAgeCard(ageDeckCards){
 		var card = ageDeckCards[i];
 		var agecardString = JSON.stringify(card);
 		if(card[0].title == "Moronic") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/exploration-weapon.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/exploration-weapon.png" class="cardselected"></img></a>';
 		}
 	}
 }
@@ -1236,16 +1236,16 @@ function updateFinalCard(finalDeckCards){
 		var card = finalDeckCards[i];
 		var finalcardString = JSON.stringify(card);
 		if(card[0].title == "Treck") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/treck-to-rocket.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/treck-to-rocket.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Launch") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/prepare-launch.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/prepare-launch.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "Tether") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/tether.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/tether.png" class="cardselected"></img></a>';
 		}
 		else if(card[0].title == "IronMan") {
-			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "C:/Users/Tamas/Documents/Java/Stranded/cardimg/iron-man.png" class="cardselected"></img></a>';
+			var cardButton = '<a href="javascript:void(0)" onclick="cardEDClicked('+i+')" target="_blank"><img src = "cardimg/iron-man.png" class="cardselected"></img></a>';
 		}
 		finalCardDropdown.innerHTML += cardButton;
 	}
