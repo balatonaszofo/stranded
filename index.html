@@ -3,6 +3,8 @@
 <title>Stranded With Matt Damon</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
+<link href="responsive.css" rel="stylesheet">
+<link rel='shortcut icon' type='image/x-icon' href='cardimg/favicon.ico' />
 </head>
 <body>
 <table class="headertable">
@@ -45,7 +47,7 @@
 	</table>
 </td>
 <td class="agecell">
-<img src = "cardimg/age-card-back.jpg" class="centered"/>
+<img src = "cardimg/age-card-back.jpg" class="centered deckimage"/>
 <div id = "shuffleAge" class="flashtext"></div>
 <div id = "addCard" class="flashtext"></div>
 	<div class="centeredbuttons">
@@ -65,7 +67,8 @@
 
 <tr>
 <td class="dangercell">
-<img src = "cardimg/danger-card-back.jpg" class="centered" id="emptyED">
+<table style="width:60%; margin-left: auto; margin-right: auto; display: block;"><tr><td style="padding-right: 5%; width: 100%;"><h2>Remaining Cards</h2></td><td><h2 id="remainingEDCards"></h2></td></tr></table>
+<img src = "cardimg/danger-card-back.jpg" class="centered deckimage" id="emptyED">
 <div id = "shuffleED" class="flashtext"></div>
 
 <p class="centeredbuttons">
@@ -80,9 +83,10 @@
 <td class="inplaycell">
 <p class="playarea">Danger Zone</p>
 	<div id="inPlay" class="centeredbuttons"></div>
-</td>
+	<div id = "winGame"></div>
 <td class="mydeckcell">
-	<img src = "cardimg/matt-card-back.jpg" class="centered" id="empty"/>
+<table style="width:60%; margin-left: auto; margin-right: auto; display: block;"><tr><td style="padding-right: 5%; width: 100%;"><h2>Remaining Cards</h2></td><td><h2 id="remainingMyDeck"></h2></td></tr></table>
+	<img src = "cardimg/matt-card-back.jpg" class="centered deckimage" id="empty"/>
 <div id = "shuffled" class="flashtext"></div>
 
 <p class="centeredbuttons">
@@ -103,7 +107,7 @@
 <td class="computerbg"">
   <h1>MY HAND</h1>
 	<p class="centeredbuttons">
-		<table style="width:40%; margin-left: auto; margin-right: auto; display: block;"><tr><td style="padding-right: 5%; width: 100%;"><h2>Total Damage Points</h2></td><td><h2 id="totalDamagePoints"></h2></td></tr></table>
+		<table style="width:60%; margin-left: auto; margin-right: auto; display: block;"><tr><td style="padding-right: 5%; width: 100%;"><h2>Total Damage Points</h2></td><td><h2 id="totalDamagePoints"></h2></td></tr></table>
 		<input type="button" class="card_select_bg" id="myHand" onclick="moveToHand();" value="Add Card" />
 		<input type="button" class="card_select_bg" onclick="tapCard();return false;" value="Tap Card" />
 		<input type="button" class="card_select_bg" onclick="winRound();return false;" value="Win Round" />

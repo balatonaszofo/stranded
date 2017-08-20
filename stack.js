@@ -18,7 +18,7 @@ var myDeck = 0;
 function startDeck() {
 	if (myDeck === 0) {
 	var mattCards = [
-		{title: 'Idiot', fightingValue: -1, ability: 'null', destroyPoints: 1, numCards: 5},
+		{title: 'Idiot', fightingValue: -1, ability: null, destroyPoints: 1, numCards: 5},
 		{title: 'Starving', fightingValue: 0, ability: null, destroyPoints: 1, numCards: 7},
 		{title: 'Harvesting', fightingValue: 0, ability: 'addOneCard', destroyPoints: 1, numCards: 1},
 		{title: 'Endurance', fightingValue: 1, ability: null, destroyPoints: 1, numCards: 3},
@@ -243,6 +243,9 @@ function drawTotal () {
 	return drawRemaining;
 }
 
+var myDeckLength = myDeck.length;
+document.getElementById('remainingMyDeck').innerHTML = myDeckLength;
+
 function moveToHand () {
 	if (myDeck.length > 0 && totalPoints < edCardValue && inPlay.length > 0 && drawPoints < inPlay[0][0].drawAmount) {
 		myHand.push(myDeck.splice(0,1));
@@ -262,9 +265,12 @@ function moveToHand () {
 		document.getElementById('shuffled').innerHTML = "";
 		document.getElementById('shuffleAge').innerHTML = "";
 	}
-	else {
+	else if (myDeck.length < 1) {
 		document.getElementById('empty').src="cardimg/empty-cards.jpg";
 		//return null;
+	}
+	else {
+		return null;
 	}
 }
 
@@ -382,6 +388,7 @@ function exchangeCard () {
 		drawPoints--;
 		drawTotal();
 		moveToHand();
+		document.getElementById('exchange').style.display = "none";
 }
 
 //Discard All Cards
@@ -401,6 +408,7 @@ function trashCard () {
 	if(selectedCard) {
 		trashPile.push(myHand.splice(logCard, 1));
 		updateSelectCardDropdown(myHand);
+		document.getElementById('trash').style.display = "none";
 	} else {
 		return null;
 	}
@@ -410,11 +418,13 @@ function doubleACard () {
 	var selectedCard = myHand[logCard][0];
 	totalPoints += selectedCard.fightingValue;
 	document.getElementById('totalDamagePoints').innerHTML = totalPoints;
+	document.getElementById('double').style.display = "none";
 }
 
 function copyACard () {
 	var selectedCard = myHand[logCard][0];
 	tapCard();
+	document.getElementById('copy').style.display = 'none';
 }
 
 function backToDeck() {
@@ -425,6 +435,7 @@ function backToDeck() {
 			updateSelectCardDropdown(myHand);
 			myDeck.push.appendChild(selectedCard.splice(0,1));
 	}
+	document.getElementById('belowThePile').style.display = "none";
 }
 
 var sortThreeCards = [];
@@ -434,6 +445,7 @@ function sortThree () {
 		for(var i = 0; i < 3; i++) {
 			sortThreeCards.push(myDeck.splice(0,1));
 		}
+		document.getElementById('sortThreeCards').style.display = "none";
 	}
 	else {
 		return null;
@@ -578,6 +590,7 @@ function discard () {
 		myDiscard.push(selectedCard);
 		sortThreeCards[logCard] = '';
 		updateSortedCards();
+	document.getElementById('discardCard').style.display = "none";
 }
 
 var deckHolder = [];
@@ -648,8 +661,9 @@ var edDeck = new startingEDdeck();
 //Shuffle And Deal Endangerement/Dexterity Deck
 var edDeckShuffleNum = 0;
 function edDeckShuffle(n) {
-	if (phaseCalls === 4) {
+	if (phaseCalls === 5) {
 		currentPhase ();
+		finalDeckShuffle(1)
 		return null;
 	} else if (myDiscard.length > 0) {
 		reshuffleED();
@@ -765,22 +779,31 @@ function updateEDCard(edDeckCards){
 	}
 }
 
+var edCardsLength = edDeck.length;
+document.getElementById('remainingEDCards').innerHTML = edCardsLength;
+
 function moveEDHand () {
-	if (phaseCalls === 4) {
+	if (phaseCalls === 5) {
 		for(var i = 0; i < 2; i++) {
 			selectionDeck.push(finalDeck.splice(0,1));
 			updateFinalCard(selectionDeck);
 		}
+		document.getElementById('remainingEDCards').innerHTML = edDeck.length;
 		document.getElementById('shuffleED').innerHTML = "";
-	} else if (edDeck.length > 0) {
+	} else if (edDeck.length > 0 && selectionDeck.length < 1) {
 		for(var i = 0; i < 2; i++) {
 			selectionDeck.push(edDeck.splice(0,1));
 			updateEDCard(selectionDeck);
 		}
+		document.getElementById('remainingEDCards').innerHTML = edDeck.length;
 		document.getElementById('shuffleED').innerHTML = "";
 	}
-	else {
+	else if (edDeck.length < 1) {
 		document.getElementById('emptyED').innerHTML = '<img src = "cardimg/empty-cards.jpg" />';
+		document.getElementById('remainingEDCards').innerHTML = edDeck.length;
+	}
+	else {
+		return null;	
 	}
 	//return myHand;
 	//document.getElementById('selectionDeck').innerHTML = JSON.stringify(selectionDeck);
@@ -804,14 +827,17 @@ function cardEDClicked (cardEDIndex) {
 
 var tempPlay = [];
 
+var finalPoints = 0;
+
 function moveToPlay () {
 		var selectIndex = document.getElementById('edselCard');
 		var selectedEDCard = selectionDeck[logEDCard][0];
 		if(selectedEDCard) {
 			inPlay.splice(selectIndex, 1);
-			if (phaseCalls === 4) {
+			if (phaseCalls === 5) {
 				finalDeck=[];
 				updateEDCard(inPlay);
+				finalPoints++;
 			}
 			else {
 				updateEDCard(inPlay);
@@ -825,94 +851,94 @@ function moveToPlay () {
 			console.log(inPlay[0][0].title);
 
 		if(inPlay[0][0].title == "ExplorationOne") {
-			var cardButton = '<img src = "cardimg/exploration-weapon.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-weapon.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationTwo") {
-			var cardButton = '<img src = "cardimg/exploration-discovery.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-discovery.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationThree") {
-			var cardButton = '<img src = "cardimg/exploration-multiply.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-multiply.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationFour") {
-			var cardButton = '<img src = "cardimg/exploration-recycle.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-recycle.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationFive") {
-			var cardButton = '<img src = "cardimg/exploration-repeat.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-repeat.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "ExplorationSix") {
-			var cardButton = '<img src = "cardimg/exploration-nourishment.png"></img>';
+			var cardButton = '<img src = "cardimg/exploration-nourishment.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "SandstormOne") {
-			var cardButton = '<img src = "cardimg/sandstorm-discovery.png"></img>';
+			var cardButton = '<img src = "cardimg/sandstorm-discovery.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "SandstormTwo") {
-			var cardButton = '<img src = "cardimg/sandstorm-contact.png"></img>';
+			var cardButton = '<img src = "cardimg/sandstorm-contact.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "SandstormThree") {
-			var cardButton = '<img src = "cardimg/sandstorm-optimization.png"></img>';
+			var cardButton = '<img src = "cardimg/sandstorm-optimization.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "SandstormFour") {
-			var cardButton = '<img src = "cardimg/sandstorm-prioritization.png"></img>';
+			var cardButton = '<img src = "cardimg/sandstorm-prioritization.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationOne") {
-			var cardButton = '<img src = "cardimg/deep-exploration-multiply.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-multiply.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationTwo") {
-			var cardButton = '<img src = "cardimg/deep-exploration-optimization.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-optimization.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationThree") {
-			var cardButton = '<img src = "cardimg/deep-exploration-contact.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-contact.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationFour") {
-			var cardButton = '<img src = "cardimg/deep-exploration-discovery.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-discovery.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationFive") {
-			var cardButton = '<img src = "cardimg/deep-exploration-nourishment.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-nourishment.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "DeepExplorationSix") {
-			var cardButton = '<img src = "cardimg/deep-exploration-multiply.png"></img>';
+			var cardButton = '<img src = "cardimg/deep-exploration-multiply.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarOne") {
-			var cardButton = '<img src = "cardimg/clean-solar-tools.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-tools.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarTwo") {
-			var cardButton = '<img src = "cardimg/clean-solar-exchange.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-exchange.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarThree") {
-			var cardButton = '<img src = "cardimg/clean-solar-nourishment.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-nourishment.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarFour") {
-			var cardButton = '<img src = "cardimg/clean-solar-recycle.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-recycle.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarFive") {
-			var cardButton = '<img src = "cardimg/clean-solar-repeat.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-repeat.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarSix") {
-			var cardButton = '<img src = "cardimg/clean-solar-minusphase.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-minusphase.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "CleanSolarSeven") {
-			var cardButton = '<img src = "cardimg/clean-solar-discovery.png"></img>';
+			var cardButton = '<img src = "cardimg/clean-solar-discovery.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "CargoHaul") {
-			var cardButton = '<img src = "cardimg/cargo-haul-weapon.png"></img>';
+			var cardButton = '<img src = "cardimg/cargo-haul-weapon.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "Treck") {
-			var cardButton = '<img src = "cardimg/treck-to-rocket.png"></img>';
+			var cardButton = '<img src = "cardimg/treck-to-rocket.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "Launch") {
-			var cardButton = '<img src = "cardimg/prepare-launch.png"></img>';
+			var cardButton = '<img src = "cardimg/prepare-launch.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "Tether") {
-			var cardButton = '<img src = "cardimg/tether.png"></img>';
+			var cardButton = '<img src = "cardimg/tether.png" class = "inplay"></img>';
 		}
 		else if(inPlay[0][0].title == "IronMan") {
-			var cardButton = '<img src = "cardimg/iron-man.png"></img>';
+			var cardButton = '<img src = "cardimg/iron-man.png" class = "inplay"></img>';
 		}
 		else {
 			return null;
 		}
 		document.getElementById('inPlay').innerHTML += cardButton;
-		if (phaseCalls === 4) {
+		if (phaseCalls === 5) {
 			edCardStrength ();
 		}
 		else {
@@ -1011,6 +1037,9 @@ function winRound() {
 		edCardValue = 0;
 		document.getElementById("myHand").disabled = false;
 		gainCard.called = false;
+	} else if(phaseCalls === 5 && finalPoints === 2 && totalPoints >= edCardValue) {
+		document.getElementById('inPlay').innerHTML = '';
+		winGame();
 	} else if(totalPoints >= edCardValue) {
 		discardAllCards();
 		var selCardDropdown = document.getElementById('selCard');
@@ -1249,4 +1278,8 @@ function updateFinalCard(finalDeckCards){
 		}
 		finalCardDropdown.innerHTML += cardButton;
 	}
+}
+
+function winGame() {
+	document.getElementById('winGame').innerHTML = '<img src = "cardimg/WinGame.jpg" class = "winGame"></img>';
 }

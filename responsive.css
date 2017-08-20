@@ -1,0 +1,713 @@
+/* lg */ 
+@media (min-width: 1800px) {
+h1 {
+	font-size: 25px;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+.logoposition {
+	padding-top: 8%;
+	margin-right: 30%;
+}
+
+.agecell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.dangercell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.mydeckcell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.flashtext {
+	width: 60%;
+	font-size: 250%;
+}
+
+.winGame {
+	width: 100%;
+}
+
+.myhandcell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.computerbg {
+	border: 3px solid #fff;
+}
+
+.inplaycell {
+	padding: 5px 5px 5px 5px;
+}
+
+.squareone {
+	width: 20px;
+	height: 20px;
+}
+
+.squaretwo {
+	width: 20px;
+	height: 20px;
+}
+
+.squarethree {
+	width: 20px;
+	height: 20px;
+}
+
+.squarefour {
+	width: 40px;
+	height: 40px;
+	border: 1px solid #fff;
+}
+
+span {
+	font-size: 20px;
+}
+
+.cardselect:hover {
+	box-shadow: inset 0 100px 0 0 #fff;
+    color: #FFF;
+}
+
+.centered {
+	box-shadow: 10px 10px 5px #666666;
+	border: 8px solid #fff;
+	margin-top: 5%;
+	margin-bottom:5%;
+}
+
+.cardselected {
+	margin-right: 20px; 
+	margin-bottom: 20px;
+	width: 200px;
+}
+
+.cardselected:link { 
+	-moz-box-shadow: 0 0 10px #fff;
+	-webkit-box-shadow: 0 0 10px #fff;
+	box-shadow: 0px 0px 10px #fff;
+}
+
+.cardselected:hover {
+	-moz-box-shadow: 0 0 10px #fff;
+	-webkit-box-shadow: 0 0 10px #fff;
+	box-shadow: 0px 0px 10px #fff;
+}
+
+.cardselected:active { 
+	-moz-box-shadow: 0 0 10px #00F;
+	-webkit-box-shadow: 0 0 10px #00F;
+	box-shadow: 0px 0px 10px #00F;
+}
+
+.cardselected:visited { 
+	-moz-box-shadow: 0 0 10px #00F;
+	-webkit-box-shadow: 0 0 10px #00F;
+	box-shadow: 0px 0px 10px #00F;
+}
+
+.headertable {
+	margin-top: -10px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	width: 80%;
+	background-image: url("cardimg/logo.png");
+	background-size: 500px 308px;
+    background-position: 50% 10%; 
+}
+
+.maintable {
+	padding-right:20px;
+	padding-left:20px;
+	width: 80%;
+}
+
+.headercell {
+	padding: 100px;
+}
+
+
+/*Grey Button*/
+.button_sliding_bg {
+    padding: 12px 17px;
+    margin: 10px;
+    border: 3px solid #77ff62;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.button_sliding_bg:hover {
+    box-shadow: inset 0 100px 0 0 #31302B;
+    color: #FFF;
+}
+
+/*Deck Selection*/
+.card_select_bg {
+    padding: 12px 17px;
+    margin: 10px;
+    border: 3px solid #31302B;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.card_select_bg:hover {
+    box-shadow: inset 0 100px 0 0 #31302B;
+    color: #FFF;
+}
+.inplay {
+	width: 200px;
+}
+
+.playarea {
+   font-size: 300%;
+}
+
+
+
+}
+
+/* md */
+@media (min-width: 1600px) and (max-width: 1799px) {
+h1 {
+	font-size: 25px;
+}
+
+h2 {
+	font-size: 14px;
+}
+
+.logoposition {
+	padding-top: 12%;
+	margin-right: 35%;
+	width: 400px;
+}
+
+.agecell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.dangercell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.mydeckcell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.flashtext {
+	width: 60%;
+	font-size: 250%;
+}
+
+.winGame {
+	width: 100%;
+}
+
+.myhandcell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.computerbg {
+	border: 3px solid #fff;
+}
+
+.inplaycell {
+	padding: 5px 5px 5px 5px;
+}
+
+.squareone {
+	width: 20px;
+	height: 20px;
+}
+
+.squaretwo {
+	width: 20px;
+	height: 20px;
+}
+
+.squarethree {
+	width: 20px;
+	height: 20px;
+}
+
+.squarefour {
+	width: 40px;
+	height: 40px;
+	border: 1px solid #fff;
+}
+
+span {
+	font-size: 20px;
+}
+
+.cardselect:hover {
+	box-shadow: inset 0 100px 0 0 #fff;
+    color: #FFF;
+}
+
+.centered {
+	box-shadow: 10px 10px 5px #666666;
+	border: 8px solid #fff;
+	margin-top: 5%;
+	margin-bottom:5%;
+}
+
+.cardselected {
+	margin-right: 20px; 
+	margin-bottom: 20px;
+	width: 170px;
+}
+
+.cardselected:link { 
+	-moz-box-shadow: 0 0 10px #fff;
+	-webkit-box-shadow: 0 0 10px #fff;
+	box-shadow: 0px 0px 10px #fff;
+}
+
+.cardselected:hover {
+	-moz-box-shadow: 0 0 10px #fff;
+	-webkit-box-shadow: 0 0 10px #fff;
+	box-shadow: 0px 0px 10px #fff;
+}
+
+.cardselected:active { 
+	-moz-box-shadow: 0 0 10px #00F;
+	-webkit-box-shadow: 0 0 10px #00F;
+	box-shadow: 0px 0px 10px #00F;
+}
+
+.cardselected:visited { 
+	-moz-box-shadow: 0 0 10px #00F;
+	-webkit-box-shadow: 0 0 10px #00F;
+	box-shadow: 0px 0px 10px #00F;
+}
+
+.headertable {
+	margin-top: -10px;
+	padding-top: 40px;
+	padding-bottom: 50px;
+	width: 80%;
+	background-image: url("cardimg/logo.png");
+	background-size: 425px;
+    background-position: 56% 20%; 
+}
+
+.maintable {
+	padding-right:20px;
+	padding-left:20px;
+	width: 80%;
+}
+
+.headercell {
+	padding: 100px;
+}
+
+
+/*Grey Button*/
+.button_sliding_bg {
+    padding: 8px 14px;
+    margin: 8px;
+    border: 3px solid #77ff62;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.button_sliding_bg:hover {
+    box-shadow: inset 0 100px 0 0 #31302B;
+    color: #FFF;
+}
+
+/*Deck Selection*/
+.card_select_bg {
+    padding: 8px 14px;
+    margin: 8px;
+    border: 3px solid #31302B;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.card_select_bg:hover {
+    box-shadow: inset 0 100px 0 0 #31302B;
+    color: #FFF;
+}
+.inplay {
+	width: 170px;
+}
+.playarea {
+   font-size: 300%;
+}
+}
+
+/* sm */
+@media (min-width: 1150px) and (max-width: 1599px) {
+h1 {
+	font-size: 18px;
+}
+
+h2 {
+	font-size: 12px;
+}
+
+.logoposition {
+	padding-top: 10%;
+	margin-right: 30%;
+	width: 400px;
+}
+
+.agecell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.dangercell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.mydeckcell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.flashtext {
+	width: 60%;
+	font-size: 200%;
+}
+
+.winGame {
+	width: 100%;
+}
+
+.myhandcell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.computerbg {
+	border: 3px solid #fff;
+}
+
+.inplaycell {
+	padding: 5px 5px 5px 5px;
+}
+
+.squareone {
+	width: 20px;
+	height: 20px;
+}
+
+.squaretwo {
+	width: 20px;
+	height: 20px;
+}
+
+.squarethree {
+	width: 20px;
+	height: 20px;
+}
+
+.squarefour {
+	width: 40px;
+	height: 40px;
+	border: 1px solid #fff;
+}
+
+span {
+	font-size: 20px;
+}
+
+.cardselect:hover {
+	box-shadow: inset 0 100px 0 0 #fff;
+    color: #FFF;
+}
+
+.centered {
+	box-shadow: 10px 10px 5px #666666;
+	border: 5px solid #fff;
+	margin-top: 5%;
+	margin-bottom:5%;
+}
+
+.cardselected {
+	margin-right: 10px; 
+	margin-bottom: 10px;
+	width: 120px;
+}
+
+.cardselected:link { 
+	-moz-box-shadow: 0 0 10px #fff;
+	-webkit-box-shadow: 0 0 10px #fff;
+	box-shadow: 0px 0px 10px #fff;
+}
+
+.cardselected:hover {
+	-moz-box-shadow: 0 0 10px #fff;
+	-webkit-box-shadow: 0 0 10px #fff;
+	box-shadow: 0px 0px 10px #fff;
+}
+
+.cardselected:active { 
+	-moz-box-shadow: 0 0 10px #00F;
+	-webkit-box-shadow: 0 0 10px #00F;
+	box-shadow: 0px 0px 10px #00F;
+}
+
+.cardselected:visited { 
+	-moz-box-shadow: 0 0 10px #00F;
+	-webkit-box-shadow: 0 0 10px #00F;
+	box-shadow: 0px 0px 10px #00F;
+}
+
+.headertable {
+	margin-top: -10px;
+	padding-top: 30px;
+	padding-bottom: 50px;
+	width: 80%;
+	background-image: url("cardimg/logo.png");
+	background-size: 325px;
+    background-position: 57% 20%; 
+}
+
+.maintable {
+	padding-right:20px;
+	padding-left:20px;
+	width: 90%;
+}
+
+.headercell {
+	padding: 100px;
+}
+
+
+/*Grey Button*/
+.button_sliding_bg {
+    padding: 6px 4px;
+    margin: 4px;
+    border: 2px solid #77ff62;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.button_sliding_bg:hover {
+    box-shadow: inset 0 100px 0 0 #31302B;
+    color: #FFF;
+}
+
+/*Deck Selection*/
+.card_select_bg {
+    padding: 6px 4px;
+    margin: 4px;
+    border: 2px solid #31302B;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.card_select_bg:hover {
+    box-shadow: inset 0 100px 0 0 #31302B;
+    color: #FFF;
+}
+.inplay {
+	width: 120px;
+}
+.playarea {
+   font-size: 200%;
+}
+.tutorialsize h2{
+	font-size: 18px;
+}
+}
+
+/* sm */
+@media (min-width: 800px) and (max-width: 1149px) {
+h1 {
+	font-size: 14px;
+}
+
+h2 {
+	font-size: 10px;
+}
+
+.logoposition {
+	padding-top: 11%;
+	margin-right: 30%;
+	width: 325px;
+}
+
+.agecell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.dangercell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.mydeckcell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.flashtext {
+	width: 60%;
+	font-size: 200%;
+}
+
+.winGame {
+	width: 100%;
+}
+
+.myhandcell {
+	border: 3px solid #fff;
+	padding: 5px 5px 5px 5px;
+}
+
+.computerbg {
+	border: 3px solid #fff;
+}
+
+.inplaycell {
+	padding: 5px 5px 5px 5px;
+}
+
+.squareone {
+	width: 20px;
+	height: 20px;
+}
+
+.squaretwo {
+	width: 20px;
+	height: 20px;
+}
+
+.squarethree {
+	width: 20px;
+	height: 20px;
+}
+
+.squarefour {
+	width: 40px;
+	height: 40px;
+	border: 1px solid #fff;
+}
+
+span {
+	font-size: 20px;
+}
+
+.cardselect:hover {
+	box-shadow: inset 0 100px 0 0 #fff;
+    color: #FFF;
+}
+
+.centered {
+	box-shadow: 10px 10px 5px #666666;
+	border: 5px solid #fff;
+	margin-top: 5%;
+	margin-bottom:5%;
+}
+
+.cardselected {
+	margin-right: 10px; 
+	margin-bottom: 10px;
+	width: 120px;
+}
+
+.cardselected:link { 
+	-moz-box-shadow: 0 0 10px #fff;
+	-webkit-box-shadow: 0 0 10px #fff;
+	box-shadow: 0px 0px 10px #fff;
+}
+
+.cardselected:hover {
+	-moz-box-shadow: 0 0 10px #fff;
+	-webkit-box-shadow: 0 0 10px #fff;
+	box-shadow: 0px 0px 10px #fff;
+}
+
+.cardselected:active { 
+	-moz-box-shadow: 0 0 10px #00F;
+	-webkit-box-shadow: 0 0 10px #00F;
+	box-shadow: 0px 0px 10px #00F;
+}
+
+.cardselected:visited { 
+	-moz-box-shadow: 0 0 10px #00F;
+	-webkit-box-shadow: 0 0 10px #00F;
+	box-shadow: 0px 0px 10px #00F;
+}
+
+.headertable {
+	margin-top: -10px;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	width: 85%;
+	background-image: url("cardimg/logo.png");
+	background-size: 260px;
+    background-position: 56% 20%; 
+}
+
+.maintable {
+	padding-right:20px;
+	padding-left:20px;
+	width: 90%;
+}
+
+.headercell {
+	padding: 100px;
+}
+
+
+/*Grey Button*/
+.button_sliding_bg {
+    padding: 5px 4px;
+    margin: 1px;
+    border: 1px solid #77ff62;
+    font-size: 8px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.button_sliding_bg:hover {
+    box-shadow: inset 0 100px 0 0 #31302B;
+    color: #FFF;
+}
+
+/*Deck Selection*/
+.card_select_bg {
+    padding: 5px 4px;
+    margin: 1px;
+    border: 1px solid #31302B;
+    font-size: 8px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+.card_select_bg:hover {
+    box-shadow: inset 0 100px 0 0 #31302B;
+    color: #FFF;
+}
+.inplay {
+	width: 120px;
+}
+.playarea {
+   font-size: 175%;
+}
+
+.tutorialsize h2{
+	font-size: 18px;
+}
+}
